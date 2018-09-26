@@ -10,6 +10,8 @@ public class Metodos {
 		
 		//Comentario11
 		
+		//Comentario2
+		
 		try
 		{
 			FileWriter fichero = new FileWriter("src\\P02_Metodos\\fichero.txt");
