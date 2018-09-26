@@ -3,9 +3,12 @@ package P02_Metodos;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Metodos {
 
+public class Metodos {
+	
 	public static void main(String[] args) {
+		
+		//Comentario
 		
 		try
 		{
