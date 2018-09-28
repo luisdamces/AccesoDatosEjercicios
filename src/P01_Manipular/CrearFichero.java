@@ -1,31 +1,32 @@
 package P01_Manipular;
 
-import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 
 public class CrearFichero {
 
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
 		
 		try
 		{
-			FileWriter fichero = new FileWriter("src\\P01_Manipular\\fichero.txt");
+			File fichero = new File("C:\\Users\\ifc\\Desktop\\fichero.txt");
 			
-			String dir = "src\\P01_Manipular\\carpeta";
+			if(fichero.exists())
+			{
+				System.out.println("El fichero ya existe.");
+			}
+			else
+			{
+				fichero.createNewFile();
+			}
 			
 		}
 		catch(IOException e)
 		{
-			
+			System.out.println(e.getMessage());
 		}
-		
 
-		
-	
-		
-	
-		
 	}
 
 }
