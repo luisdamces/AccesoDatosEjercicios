@@ -8,7 +8,7 @@ public class Provincias {
 
 	public static void main(String[] args) throws IOException{
 
-		String ruta = "src\\P03_lectura_escritura\\provincias.txt";
+		String ruta = "src\\P03_lectura_escritura\\provincias.txt"; //si el fichero ya tiene contenido, se borra todo lo que tenía escrito
 		File fichero = new File(ruta);
 		
 		String provincias[] = new String[10];
@@ -23,7 +23,7 @@ public class Provincias {
 			provincias[8]="Burgos";
 			provincias[9]="Cáceres";
 		
-		FileWriter escribir = new FileWriter(fichero);
+		FileWriter escribir = new FileWriter(fichero); 
 		
 		for(int i = 0; i < 10; i++)
 		{
