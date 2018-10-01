@@ -12,13 +12,32 @@ public class LecturaEscritura {
 		File fichero = new File(ruta);
 		int i; //nº caracter actual
 		
-		FileReader leer = new FileReader(fichero);
+		FileReader leer = new FileReader(fichero);//flujo de entrada al fichero
 			
 		
-		while((i=leer.read())!=-1)
+		while((i=leer.read())!=-1)//while para leer el fichero
 		{
 				System.out.print((char)i);
 		}
+		
+		leer.close();
+		
+		System.out.println();
+		
+		//ahora con array de tipo caracter
+		
+		leer = new FileReader(fichero);
+		
+		char b[] = new char[50]; //segun el tamaño del array irá leyendo en grupos
+		
+		i = 0;
+		
+		while((i=leer.read(b))!=-1)
+		{
+			System.out.println(b);
+		}
+		
+		leer.close();//cerrar fichero
 		
 		
 	}
