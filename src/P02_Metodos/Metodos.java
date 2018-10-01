@@ -110,6 +110,17 @@ public class Metodos {
 			
 			personajeh.renameTo(new File(directorio, "bernadet.txt"));
 			
+			//borrar un fichero
+			
+			if(personajes.delete())
+			{
+				System.out.println("\r\nEl fichero se ha eliminado.");
+			}
+			else
+			{
+				System.out.println("\r\nHa habido un problema y el fichero no se ha eliminado.");
+			}
+			
 			
 			
 		}
