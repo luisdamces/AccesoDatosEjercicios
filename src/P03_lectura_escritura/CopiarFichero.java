@@ -20,7 +20,7 @@ public class CopiarFichero {
 		
 		char caracteres[];
 		
-		//--------LEER EL PRIMERO FICHERO-----------------------------
+		//LEER EL PRIMERO FICHERO
 		
 		FileReader fr = new FileReader(f1);
 		
@@ -31,13 +31,13 @@ public class CopiarFichero {
 		
 		fr.close();
 		
-		//---------ESCRIBIR EL TEXTO EN EL SEGUNDO--------------------
+		//ESCRIBIR EL TEXTO EN EL SEGUNDO
 		
 		FileWriter fw = new FileWriter(f2);
 		
 		caracteres = texto.toCharArray();
 		
-		for(int x = 0; x<caracteres.length; x++)
+		for(int x = 0; x < caracteres.length; x++)
 		{
 			fw.write(caracteres[x]);
 		}
