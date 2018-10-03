@@ -15,11 +15,11 @@ public class LeerLinea {
 
 		FileReader fr = new FileReader(new File("src\\P03_lectura_escritura\\fichero_texto.txt"));
 		
-		BufferedReader buffer = new BufferedReader(fr);
+		BufferedReader buffer = new BufferedReader(fr); //con la clase bufferedreader se puede leer un fichero linea por linea
 		
 		String tmp;
 		
-			while((tmp = buffer.readLine())!=null)
+			while((tmp = buffer.readLine())!=null) 
 			{
 				System.out.println(tmp);
 			}
