@@ -25,7 +25,7 @@ public class Persona implements Serializable{
 		return "La edad de la persona es " + edad; 
 	}
 	
-	//setters-
+	//setters
 	
 	public void setEdad(int vedad)
 	{
