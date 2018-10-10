@@ -13,7 +13,7 @@ public class Persona implements Serializable{
 		nombre="Óscar";
 	}
 	
-	//getters
+	//getters-
 	
 	public String getNombre()
 	{
