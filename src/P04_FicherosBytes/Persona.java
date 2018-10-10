@@ -13,7 +13,7 @@ public class Persona implements Serializable{
 		nombre="Óscar";
 	}
 	
-	//getters-
+	//getters
 	
 	public String getNombre()
 	{
@@ -25,7 +25,7 @@ public class Persona implements Serializable{
 		return "La edad de la persona es " + edad; 
 	}
 	
-	//setters-
+	//setters
 	
 	public void setEdad(int vedad)
 	{
