@@ -7,10 +7,10 @@ public class Persona implements Serializable{
 	private int edad;
 	private String nombre;
 	
-	public Persona()
+	public Persona(int vedad, String vnombre)
 	{
-		edad = 21;
-		nombre="Óscar";
+		edad = vedad;
+		nombre = vnombre;
 	}
 	
 	//getters
