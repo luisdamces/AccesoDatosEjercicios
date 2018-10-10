@@ -5,10 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.Scanner;
 
 public class Escritura_Objetos {
+	
+	static Scanner teclado;
 
 	public static void main(String[] args) throws IOException {
+		
+		teclado = new Scanner(System.in);
 
 		File f1 = new File("src\\P04_FicherosBytes\\personas.dat");
 		f1.createNewFile();
@@ -17,18 +22,20 @@ public class Escritura_Objetos {
 		ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 		
 		String[] nombres = new String[5];
-			nombres[0]="Pepe";
-			nombres[1]="Juan";
-			nombres[2]="Pedro";
-			nombres[3]="Maria";
-			nombres[4]="Carmen";
-			
 		int[] edades = new int[5];
-			edades[0] = 20;
-			edades[1] = 25;
-			edades[2] = 40;
-			edades[3] = 15;
-			edades[4] = 20;
+
+				
+			for(int i = 0; i < 5; i++)
+			{
+				System.out.println("Introduce el nombre nº " + (i+1));
+				
+				nombres[i] = teclado.nextLine();
+				
+				System.out.println("Introduce su edad");
+				
+				edades[i] = teclado.nextInt();
+					teclado.nextLine();
+			}
 			
 			
 		for(int i = 0; i < 5; i++)
