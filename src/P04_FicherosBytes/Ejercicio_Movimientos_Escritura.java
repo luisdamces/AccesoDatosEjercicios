@@ -1,3 +1,5 @@
+//clase que escribe varios movimientos bancarios en un fichero de datos
+
 package P04_FicherosBytes;
 
 import java.io.File;

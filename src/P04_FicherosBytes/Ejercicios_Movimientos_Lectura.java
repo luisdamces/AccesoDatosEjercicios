@@ -1,3 +1,5 @@
+//clase que lee los movimientos bancarios de un fichero de datos, los muestra por pantalla y hace un calculo de la cantidad total
+
 package P04_FicherosBytes;
 
 import java.io.EOFException;
