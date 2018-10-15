@@ -25,19 +25,25 @@ public class Ejercicio_Movimientos_Escritura {
 		
 		Movimiento_bancario mov;
 		
+		String fecha;
+		String concepto;
+		int cantidad;
+		boolean tipo;
+		
+		
 		while(opcion.equals("si"))
 		{
 			System.out.println("Introduce la fecha");
-				String fecha = teclado.nextLine();
+				fecha = teclado.nextLine();
 				
 			System.out.println("Introduce el concepto");
-				String concepto = teclado.nextLine();
+				concepto = teclado.nextLine();
 				
 			System.out.println("Introduce la cantidad");
-				int cantidad = teclado.nextInt();
+				cantidad = teclado.nextInt();
 			
 			System.out.println("Introduce el tipo (boolean)");
-				boolean tipo = teclado.nextBoolean();
+				tipo = teclado.nextBoolean();
 				teclado.nextLine();
 				
 				mov = new Movimiento_bancario(fecha, concepto, cantidad, tipo);
