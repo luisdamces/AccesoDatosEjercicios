@@ -20,11 +20,10 @@ public class Ejercicios_Movimientos_Lectura {
 		Movimiento_bancario mov;
 		
 		int cantidad_total = 0;
-		
+		int i = 0;
 		
 		try
 		{
-			int i = 0;
 			
 			while(true)
 			{
