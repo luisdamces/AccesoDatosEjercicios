@@ -24,25 +24,22 @@ public class Ejercicios_Movimientos_Lectura {
 		
 		try
 		{
-			int i = 1;
+			int i = 0;
 			
 			while(true)
 			{
 				
-				
 				mov = (Movimiento_bancario)objectIn.readObject();
 				
-				System.out.println("Movimiento nº " + i + " - Fecha: " + mov.getFecha() + " - Concepto: " + mov.getConcepto()
+				System.out.println("Movimiento nº " + ++i + " - Fecha: " + mov.getFecha() + " - Concepto: " + mov.getConcepto()
 				+ " - Cantidad: " + mov.getCantidad() + " - Tipo: " + mov.getTipo());
 				
-				i++;
 				
 				if(mov.getTipo())
 					cantidad_total += mov.getCantidad();
 				
 				else
 					cantidad_total -= mov.getCantidad();
-				
 				
 			}
 		}
