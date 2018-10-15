@@ -6,10 +6,10 @@ import java.io.Serializable;
 
 public class Movimiento_bancario implements Serializable{
 	
-	String fecha;
-	String concepto;
-	int cantidad;
-	boolean tipo;
+	private String fecha;
+	private String concepto;
+	private int cantidad;
+	private boolean tipo;
 	
 	Movimiento_bancario(String vfecha, String vconcepto, int vcantidad, boolean vtipo)
 	{
