@@ -38,13 +38,11 @@ public class Ejercicios_Movimientos_Lectura {
 				i++;
 				
 				if(mov.getTipo())
-				{
-					cantidad_total = cantidad_total + mov.getCantidad();
-				}
+					cantidad_total += mov.getCantidad();
+				
 				else
-				{
-					cantidad_total = cantidad_total - mov.getCantidad();
-				}
+					cantidad_total -= mov.getCantidad();
+				
 				
 			}
 		}
