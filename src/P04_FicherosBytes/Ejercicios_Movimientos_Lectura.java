@@ -48,7 +48,7 @@ public class Ejercicios_Movimientos_Lectura {
 		}
 		catch(EOFException e)
 		{
-			System.out.println("");
+			System.out.println("Ya no hay más movimientos");
 		}
 		
 		objectIn.close();
