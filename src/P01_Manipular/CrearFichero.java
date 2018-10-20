@@ -10,7 +10,7 @@ public class CrearFichero {
 		
 		try
 		{
-			File fichero = new File("C:\\Users\\ifc\\Desktop\\fichero.txt"); //prueba
+			File fichero = new File("C:\\Users\\ifc\\Desktop\\fichero.txt"); //prueba--
 			
 			if(fichero.exists())
 			{
