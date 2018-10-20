@@ -22,10 +22,13 @@ public class Lectura_fichero_aleatorio {
 		int posicion = 0;
 		
 		int id;
+		
 		char[] apellidos = new char [10];
 		char aux;
 		String apellido;
+		
 		int dpto;
+		
 		double salario;
 		
 		try {
