@@ -2,14 +2,16 @@ package P04_FicherosBytes;
 
 import java.io.Serializable;
 
-public class Cancion implements Serializable{
+public class Cancion{
 	
-	private int id;
-	private int ano;
-	private String titulo;
-	private String artista;
-	private String duracion;
-	private boolean cancion_espanola;
+	private int id; // 4B
+	private int ano; // 4B
+	private String titulo; //20 char -> 2B * 20 = 40 B
+	private String artista; //20 char -> 2B * 20 = 40 B
+	private String duracion; //20 char -> 2B * 20 = 40 B
+	private boolean cancion_espanola; // 1B
+	
+	// TAMAÑO TOTAL CANCION = 129 Bytes;
 	
 	Cancion(int vid, int vano, String vtitulo, String vartista, String vduracion, boolean vcancion_espanola)
 	{
@@ -19,6 +21,16 @@ public class Cancion implements Serializable{
 		artista = vartista;
 		duracion = vduracion;
 		cancion_espanola = vcancion_espanola;
+	}
+	
+	Cancion()
+	{
+		id = 0;
+		ano = 0;
+		titulo = "";
+		artista = "";
+		duracion = "";
+		cancion_espanola = false;
 	}
 	
 	//GETTERS Y SETTERS
