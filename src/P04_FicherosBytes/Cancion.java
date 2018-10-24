@@ -83,5 +83,33 @@ public class Cancion{
 		this.cancion_espanola = cancion_espanola;
 	}
 	
+	//
+	
+	public String mostrarDatosCancion()
+	{
+		return "" + getId() + " - " + getAno() + " - " + acortarString(getTitulo()) + " - " + 
+				acortarString(getArtista()) + " - " + acortarString(getDuracion()) + " - " + isCancion_espanola() + "";
+	}
+	
+	public String acortarString(String cadena)
+	{
+		char[] car;
+		String str = "";
+		car = cadena.toCharArray();
+		
+		for(int i = cadena.length()-1; i>=0; i--)
+		{
+			if(Character.isLetterOrDigit((car[i])))
+			{
+				for(int x = 0; x < i+1; x++)
+				{
+					str = str + car[x];
+				}break;
+			}
+		}
+		
+		return str;
+		
+	}
 
 }
