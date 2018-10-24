@@ -94,7 +94,7 @@ public class Lista_reproduccion {
 			
 			if(raf.readInt()==-1) // <--- ESTO NO FUNCAAA!!!!
 			{
-				posicion += 129;
+				posicion += 121;
 			}
 			else // EL IF ELSE ES LO QUE ESTÁ DANDO PROBLEMAS
 			{
