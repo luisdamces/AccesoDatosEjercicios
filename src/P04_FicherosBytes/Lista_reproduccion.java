@@ -92,11 +92,11 @@ public class Lista_reproduccion {
 			
 			canciones[x] = new Cancion();
 			
-			if(raf.readInt()==-1) 
+			if(raf.readInt()==-1) // <--- ESTO NO FUNCAAA!!!!
 			{
 				posicion += 129;
 			}
-			else
+			else // EL IF ELSE ES LO QUE ESTÁ DANDO PROBLEMAS
 			{
 				raf.seek(posicion);
 				//
