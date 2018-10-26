@@ -83,21 +83,20 @@ public class Lista_reproduccion {
 		Cancion canciones[] = new Cancion [(int)(raf.length()/129)];
 		
 		int x = 0;
+		int j = 0;
 		
 		//
 		
-		while(x<(int)(raf.length()/129))
+		while(j<(int)(raf.length()/129))
 		{
+			
 			raf.seek(posicion);
 			
-			canciones[x] = new Cancion();
 			
-			if(raf.readInt()==-1) // <--- ESTO NO FUNCAAA!!!!
+			if(raf.readInt()!=-1) // <--- 
 			{
-				posicion += 129; // <---- EL SALTO DE POSICIÓN PODRÍA SER EL PROBLEMA!!
-			}
-			else // EL IF ELSE ES LO QUE ESTÁ DANDO PROBLEMAS
-			{
+				canciones[x] = new Cancion();
+				
 				raf.seek(posicion);
 				//
 				canciones[x].setId(raf.readInt());
@@ -123,16 +122,33 @@ public class Lista_reproduccion {
 				}
 				//
 				canciones[x].setCancion_espanola(raf.readBoolean());
+				
+				
+				x++;
+				
 			}
 			
-			
+			j++;
+				
 			posicion += 129;
-			x++;
+			
+			
 		}
 		
 		raf.close();
 		
-		return canciones;
+		Cancion canciones_return[] = new Cancion[x];
+		
+		for(int i = 0; i < x; i++)
+		{
+			canciones_return[i]=canciones[i];
+		}
+		
+		
+		
+		return canciones_return;
+		
+		
 		
 	}
 	
@@ -151,7 +167,7 @@ public class Lista_reproduccion {
 		
 	}
 	
-	public boolean borrarCancion(Cancion cancion) throws IOException
+	public boolean borrarCancion(int id) throws IOException
 	{
 		
 		
@@ -170,11 +186,11 @@ public class Lista_reproduccion {
 			
 			canciones[x] = new Cancion();
 			
-			if(raf.readInt()==cancion.getId())
+			if(raf.readInt()==id)
 			{
 				raf.seek(posicion);
 				raf.writeInt(-1);
-				raf.writeInt(cancion.getId());
+				raf.writeInt(id);
 				raf.close();
 				
 				return true;
@@ -188,6 +204,120 @@ public class Lista_reproduccion {
 		raf.close();
 		
 		return true;
+		
+	}
+	
+	public Cancion[] mostrarCancionesBorradas() throws IOException
+	{
+		
+		raf = new RandomAccessFile(ruta, "r");
+		posicion = 0;
+		
+		Cancion canciones[] = new Cancion [(int)(raf.length()/129)];
+		
+		int x = 0;
+		int j = 0;
+		
+		//
+		
+		while(j<(int)(raf.length()/129))
+		{
+			
+			raf.seek(posicion);
+			
+			
+			if(raf.readInt()==-1) // <--- 
+			{
+				canciones[x] = new Cancion();
+				
+				raf.seek(posicion);
+				//
+				canciones[x].setId(raf.readInt());
+				//
+				canciones[x].setAno(raf.readInt());
+				//
+				for(int i = 0; i < 20; i++) 
+				{	
+					aux[i] = raf.readChar();
+					canciones[x].setTitulo(new String(aux));
+				}
+				//
+				for(int i = 0; i < 20; i++) 
+				{	
+					aux[i] = raf.readChar();
+					canciones[x].setArtista(new String(aux));
+				}
+				//
+				for(int i = 0; i < 20; i++) 
+				{	
+					aux[i] = raf.readChar();
+					canciones[x].setDuracion(new String(aux));
+				}
+				//
+				canciones[x].setCancion_espanola(raf.readBoolean());
+				
+				
+				x++;
+				
+			}
+			
+			j++;
+				
+			posicion += 129;
+			
+			
+		}
+		
+		raf.close();
+		
+		Cancion canciones_return[] = new Cancion[x];
+		
+		for(int i = 0; i < x; i++)
+		{
+			canciones_return[i]=canciones[i];
+		}
+		
+		
+		return canciones_return;
+		
+		
+	}
+	
+	
+	public boolean modificarCancion(int id, int nuevo_ano) throws IOException
+	{
+
+		raf = new RandomAccessFile(ruta, "rw");
+		posicion = 0;
+		
+		Cancion canciones[] = new Cancion [(int)(raf.length()/129)];
+		
+		int x = 0;
+		
+		//
+		
+		while(x<(int)(raf.length()/129))
+		{
+			raf.seek(posicion);
+			
+			canciones[x] = new Cancion();
+			
+			if(raf.readInt()==id)
+			{
+				raf.seek(posicion+4);
+				raf.writeInt(nuevo_ano);
+				
+				return true;
+				
+			}
+			
+			posicion += 129;
+			x++;
+		}
+		
+		raf.close();
+		
+		return false;
 		
 	}
 }

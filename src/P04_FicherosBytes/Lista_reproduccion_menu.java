@@ -64,7 +64,7 @@ public class Lista_reproduccion_menu {
 					while(bandera)
 					{
 						
-						System.out.println("Introduce un ID");
+						System.out.println("Introduce un ID. Tiene que ser mayor a 0");
 
 						bandera = false;
 						id_aux = teclado.nextInt();
@@ -116,6 +116,7 @@ public class Lista_reproduccion_menu {
 				{
 					canciones = lista.consultarCanciones();
 					
+					
 					for(int i = 0; i < canciones.length; i++)
 					{
 						System.out.println(canciones[i].mostrarDatosCancion());
@@ -141,23 +142,68 @@ public class Lista_reproduccion_menu {
 				
 				}break;
 				
+				case 5:
+				{
+					
+					System.out.println("Introduce el ID de la canción");
+					
+					id_aux = teclado.nextInt();
+					
+					if((cancion = lista.consultarCancion(lista.consultarCanciones(), id_aux)) == null)
+					{
+						System.out.println("La canción con ese ID no se ha encontrado");
+					}
+					else
+					{
+						System.out.println("Introduce un nuevo año");
+						
+						if(lista.modificarCancion(id_aux, teclado.nextInt()))
+						{
+							System.out.println("La canción ha sido modificada");
+						}
+						else
+						{
+							System.out.println("La canción no ha sido modificada");
+						}
+						
+						
+						
+					}
+					
+				}break;
+				
 				case 6:
 				{
 
+					
 					System.out.println("Introduce el ID de la canción");
 					
-					if((cancion = lista.consultarCancion(lista.consultarCanciones(), teclado.nextInt())) == null)
+					id_aux = teclado.nextInt();
+					
+					if((cancion = lista.consultarCancion(lista.consultarCanciones(), id_aux)) == null)
 					{
 						System.out.println("La canción con ese ID no se ha encontrado");
 					}
 					else
 					{
 						System.out.println("La canción se ha borrado");
-						lista.borrarCancion(cancion);
+						lista.borrarCancion(id_aux);
 					}
 					
 				
 				}break;
+				
+				case 7:
+				{
+					
+					canciones = lista.mostrarCancionesBorradas();
+					
+					for(int i = 0; i < canciones.length; i++)
+					{
+						System.out.println("Id: " + canciones[i].getAno());
+					}
+					
+				}
 			}
 			
 		}
