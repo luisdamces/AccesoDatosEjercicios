@@ -33,7 +33,7 @@ public class Cancion{
 		cancion_espanola = false;
 	}
 	
-	//GETTERS Y SETTERS
+	//GETTERS Y SETTERS -
 	
 	public int getId() {
 		return id;
