@@ -8,6 +8,12 @@ import java.io.ObjectInputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
@@ -84,12 +90,29 @@ public class CrearCancionXML {
 			
 		}
 		
+		Source source = new DOMSource(document);
+		
+		Result result = new StreamResult(
+			new File("src\\P05_FicherosXML\\ficheros\\canciones.xml"));
+		
+		Transformer transformer = 
+			TransformerFactory.newInstance().newTransformer();
+		
+		//se transforma el documento al fichero
+		transformer.transform(source, result);
+		
+		
+		//MOSTRAR EL DOCUMENTO POR CONSOLA
+		Result console = new StreamResult(System.out);
+		transformer.transform(source, console);
 		
 	}
 	catch (Exception e)
 	{
-		System.out.println("Ha habido un error");
+		System.out.println("Ha habido un error: " + e);
 	}
+	
+	objectIn.close();
 
 }
 	
