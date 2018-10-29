@@ -85,13 +85,18 @@ public class Cancion implements Serializable{
 	
 	//
 	
+	//metodo que devuelve un String con los datos de una cancion
 	public String mostrarDatosCancion()
 	{
-		return "" + getId() + " - " + getAno() + " - " + acortarString(getTitulo()) + " - " + 
-				acortarString(getArtista()) + " - " + acortarString(getDuracion()) + " - " + isCancion_espanola() + "";
+		return "" + getId() + " - " + getAno() + " - " 
+	+ acortarString(getTitulo()) + " - " + 
+				acortarString(getArtista()) + " - " 
+	+ acortarString(getDuracion()) + " - " + isCancion_espanola() + "";
 	}
 	
-	public String acortarString(String cadena)
+	//metodo que elimina todos los espacios en blanco que deja el buffer
+	//al final de una cadena de caracteres
+	public String acortarString(String cadena) 
 	{
 		char[] car;
 		String str = "";
