@@ -85,7 +85,10 @@ public class Cancion implements Serializable{
 	
 	//
 	
-	//metodo que devuelve un String con los datos de una cancion
+	/**
+	 * Metodo que devuelve un String con los datos de una cancion
+	 * @return String con los datos de la canción
+	 */
 	public String mostrarDatosCancion()
 	{
 		return "" + getId() + " - " + getAno() + " - " 
@@ -94,8 +97,13 @@ public class Cancion implements Serializable{
 	+ acortarString(getDuracion()) + " - " + isCancion_espanola() + "";
 	}
 	
-	//metodo que elimina todos los espacios en blanco que deja el buffer
-	//al final de una cadena de caracteres
+	
+	/**
+	 * Metodo que elimina todos los espacios en blanco que deja el buffer
+	 * al final de una cadena de caracteres
+	 * @param cadena Cadena de caracteres a acortar
+	 * @return Cadena de caracteres acortada
+	 */
 	public String acortarString(String cadena) 
 	{
 		char[] car;
