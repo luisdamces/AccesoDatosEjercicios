@@ -8,7 +8,7 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-public class Leer_XML_SAX 
+public class E02_Leer_XML_SAX 
 {	
 	//
 	public static void main(String[] args)

@@ -19,7 +19,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
-public class CrearCancionXML {
+public class E01_CrearCancionXML {
 
 	public static void main(String[] args) throws IOException {
 
@@ -33,7 +33,7 @@ public class CrearCancionXML {
 	
 	//creamos variables 
 
-	Cancion cancion = new Cancion();
+	E01_Cancion cancion = new E01_Cancion();
 	
 	
 	//instancia para construir el parser
@@ -57,7 +57,7 @@ public class CrearCancionXML {
 		for(int i = 0; i < 5; i++)
 		{
 			
-			cancion = (Cancion) objectIn.readObject();
+			cancion = (E01_Cancion) objectIn.readObject();
 			
 			//creamos nodo raiz cancion
 			Element raiz = document.createElement("Cancion");
