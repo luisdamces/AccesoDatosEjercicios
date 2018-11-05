@@ -2,7 +2,7 @@ package P05_FicherosXML;
 
 import java.io.Serializable;
 
-public class E01_Cancion implements Serializable{
+public class Cancion implements Serializable{
 	
 	private int id; // 4B
 	private int ano; // 4B
@@ -13,7 +13,7 @@ public class E01_Cancion implements Serializable{
 	
 	// TAMAÑO TOTAL CANCION = 129 Bytes;
 	
-	E01_Cancion(int vid, int vano, String vtitulo, String vartista, String vduracion, boolean vcancion_espanola)
+	Cancion(int vid, int vano, String vtitulo, String vartista, String vduracion, boolean vcancion_espanola)
 	{
 		id = vid;
 		ano = vano;
@@ -23,7 +23,7 @@ public class E01_Cancion implements Serializable{
 		cancion_espanola = vcancion_espanola;
 	}
 	
-	E01_Cancion()
+	Cancion()
 	{
 		id = 0;
 		ano = 0;

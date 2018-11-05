@@ -33,7 +33,7 @@ public class E01_CrearCancionXML {
 	
 	//creamos variables 
 
-	E01_Cancion cancion = new E01_Cancion();
+	Cancion cancion = new Cancion();
 	
 	
 	//instancia para construir el parser
@@ -57,7 +57,7 @@ public class E01_CrearCancionXML {
 		for(int i = 0; i < 5; i++)
 		{
 			
-			cancion = (E01_Cancion) objectIn.readObject();
+			cancion = (Cancion) objectIn.readObject();
 			
 			//creamos nodo raiz cancion
 			Element raiz = document.createElement("Cancion");
