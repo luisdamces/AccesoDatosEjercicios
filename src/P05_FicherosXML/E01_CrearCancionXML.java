@@ -62,7 +62,7 @@ public class E01_CrearCancionXML {
 			//creamos nodo raiz cancion
 			Element raiz = document.createElement("Cancion");
 			
-			//añadimos nodo principal 
+			//aï¿½adimos nodo principal 
 			document.getDocumentElement().appendChild(raiz);
 			
 			//
@@ -70,8 +70,8 @@ public class E01_CrearCancionXML {
 			//creamos elemento id
 			crearElemento("Id",Integer.toString(cancion.getId()),raiz,document);
 			
-			//creamos elemento año
-			crearElemento("Año",Integer.toString(cancion.getAno()),raiz,document);
+			//creamos elemento aï¿½o
+			crearElemento("Ano",Integer.toString(cancion.getAno()),raiz,document);
 			
 			//creamos elemento titulo
 			crearElemento("Titulo", cancion.getTitulo(), raiz, document);
@@ -82,8 +82,8 @@ public class E01_CrearCancionXML {
 			//creamos elemento duracion
 			crearElemento("Duracion", cancion.getDuracion(), raiz, document);
 			
-			//creamos elemento es cancion española?
-			crearElemento("Española", 
+			//creamos elemento es cancion espaï¿½ola?
+			crearElemento("Espanola", 
 						  Boolean.toString(cancion.isCancion_espanola()), 
 					      raiz, document);
 			
@@ -117,10 +117,10 @@ public class E01_CrearCancionXML {
 	
 	/**
 	 * Metodo que crea un elemento para escribirlo en documento xml
-	 * @param datoCancion Elemento de la canción
+	 * @param datoCancion Elemento de la canciï¿½n
 	 * @param valor Valor que se va a dar al elemento
 	 * @param raiz Elemento raiz
-	 * @param document Documento donde se van a añadir estos elementos
+	 * @param document Documento donde se van a aï¿½adir estos elementos
 	 */
 	static void crearElemento(String datoCancion, String valor, Element raiz,
 							  Document document)
