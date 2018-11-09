@@ -10,6 +10,8 @@
 
 [Proyecto 05 - Ficheros XML](https://github.com/oscarcillo/AccesoDatos/tree/master/src/P05_FicherosXML) - Creacion y lectura de ficheros XML.
 
+[Proyecto 06 - JAXB](https://github.com/oscarcillo/AccesoDatos/tree/master/src/P06_JAXB) - Convertir ficheros XML en HTML
+
 [Proyecto Utilidades](https://github.com/oscarcillo/AccesoDatos/tree/master/src/Utilidades) - Utilidades.
 
 
