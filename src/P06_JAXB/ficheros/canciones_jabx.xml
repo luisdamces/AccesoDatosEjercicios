@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<listaCanciones>
+    <Cancion>
+        <id>1</id>
+        <ano>2013</ano>
+        <titulo>Flying Golem</titulo>
+        <artista>Wand</artista>
+        <duracion>3:30</duracion>
+        <cancion_espanola>false</cancion_espanola>
+    </Cancion>
+    <Cancion>
+        <id>2</id>
+        <ano>2014</ano>
+        <titulo>Gold on the ceiling</titulo>
+        <artista>Black Keys</artista>
+        <duracion>3:20</duracion>
+        <cancion_espanola>false</cancion_espanola>
+    </Cancion>
+</listaCanciones>
