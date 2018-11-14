@@ -36,7 +36,7 @@ public class ListaCanciones {
     //Anotaciones para atributos que son colecciones
 	//-Hay que poner estas anotaciones delante del metodo
 	//que devuelve la coleccion
-    @XmlElementWrapper(name = "ListaCanciones") 
+    //@XmlElementWrapper(name = "ListaCanciones") 
     @XmlElement(name = "Cancion")
 	public List<Cancion> getListaCanciones()
 	{

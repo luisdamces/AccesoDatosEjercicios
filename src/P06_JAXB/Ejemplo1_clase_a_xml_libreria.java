@@ -12,7 +12,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
  
 
-public class Ejemplo1_JAXB {
+public class Ejemplo1_clase_a_xml_libreria {
  
     private static final String MIARCHIVO_XML = 
     		"src\\P06_JAXB\\ficheros\\libreria.xml";

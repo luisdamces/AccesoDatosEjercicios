@@ -10,7 +10,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-public class Ejemplo2_JAXB_Canciones {
+public class Ejemplo2_clase_a_xml_Canciones {
 	
 	private static final String ruta_xml = 
 			"src\\P06_JAXB\\ficheros\\canciones_jabx.xml";
