@@ -12,6 +12,8 @@
 
 [Proyecto 06 - JAXB](https://github.com/oscarcillo/AccesoDatos/tree/master/src/P06_JAXB) - Convertir ficheros XML en HTML
 
+[Proyecto 07 - JAXB](https://github.com/oscarcillo/AccesoDatos/tree/master/src/P07_JAXB_mapear_xml_clase) - Convertir ficheros XML en Clases Java
+
 [Proyecto Utilidades](https://github.com/oscarcillo/AccesoDatos/tree/master/src/Utilidades) - Utilidades.
 
 
