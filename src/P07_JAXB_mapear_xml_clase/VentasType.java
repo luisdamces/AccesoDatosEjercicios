@@ -6,7 +6,7 @@
 //
 
 
-package P07_JXB_mapear_xml_clase;
+package P07_JAXB_mapear_xml_clase;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

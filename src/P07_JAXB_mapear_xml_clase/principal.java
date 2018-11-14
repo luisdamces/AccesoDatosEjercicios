@@ -1,4 +1,4 @@
-package P07_JXB_mapear_xml_clase;
+package P07_JAXB_mapear_xml_clase;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,7 +13,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import P07_JXB_mapear_xml_clase.Ventas.Venta;
+import P07_JAXB_mapear_xml_clase.Ventas.Venta;
 
 
 public class principal {
@@ -45,7 +45,7 @@ public class principal {
 
 			// La clase JAXBElement representa a un elemento de un documento XML--
 			// en este caso a un elemento del documento ventasarticulos.xml
-			JAXBElement jaxbElement = (JAXBElement) u.unmarshal(new FileInputStream("src\\P07_JXB_mapear_xml_clase\\ventasarticulos.xml"));
+			JAXBElement jaxbElement = (JAXBElement) u.unmarshal(new FileInputStream("src\\P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
 
 			// Visualizo el documento
 			Marshaller m = jaxbContext.createMarshaller();
@@ -102,7 +102,7 @@ public class principal {
 
 			JAXBContext jaxbContext = JAXBContext.newInstance(ObjectFactory.class);
 			Unmarshaller u = jaxbContext.createUnmarshaller();
-			JAXBElement jaxbElement = (JAXBElement) u.unmarshal(new FileInputStream("./ventasarticulos.xml"));
+			JAXBElement jaxbElement = (JAXBElement) u.unmarshal(new FileInputStream("src\\P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
 
 			VentasType miventa = (VentasType) jaxbElement.getValue();
 
@@ -141,7 +141,7 @@ public class principal {
 				// crear el Marshaller, volcar la lista al fichero XML
 				Marshaller m = jaxbContext.createMarshaller();
 				m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-				m.marshal(jaxbElement, new FileOutputStream("./ventasarticulos.xml"));
+				m.marshal(jaxbElement, new FileOutputStream("src\\P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
 
 				System.out.println("Venta a�adida: " + numeventa);
 
