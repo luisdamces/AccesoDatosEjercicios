@@ -1,5 +1,7 @@
 # Acceso a Datos
 
+Repositorio que contiene ejercicios de la asignatura Acceso a Datos del Ciclo D.A.M.
+
 ## Unidad 01 - Manejo de Ficheros
 
 [Proyecto 01 - Manipular ficheros](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD01_P01_Manipular) - Uso de clase File para crear ficheros.
