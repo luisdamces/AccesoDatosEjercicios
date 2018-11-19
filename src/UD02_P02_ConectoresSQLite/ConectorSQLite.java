@@ -8,66 +8,51 @@ import java.sql.Statement;
 
 public class ConectorSQLite {
 	
-	private static Statement statement;
-	private static ResultSet rs;
-	
-	  public static void main(String[] args)
-      {
-        Connection connection = null;
-        
-        try
-        {
-        	
-          // create a database connection
-          connection = DriverManager.getConnection
-            ("jdbc:sqlite:src\\UD02_P02_ConectoresSQLite\\SQLite\\prueba.db");
-          
-          statement = connection.createStatement();
-          statement.setQueryTimeout(30);  // set timeout to 30 sec.
-
-          //crear la tabla principal
-          statement.executeUpdate("drop table if exists persona");
-          statement.executeUpdate
-          	("create table persona (id integer, nombre string, apellido string,"
-          	 + "email string, telefono string, localidad string)");
-          
-          insertar("oscar", "tutor", "a@a.es", "898787676", "tudela");
+	private Statement statement;
+	private ResultSet rs;
+	  
+	  //METODOS
+	  
+	  /**
+	   * Metodo para conectarse a la base de datos
+	   */
+	  public void conexionBD()
+	  {
+		  Connection connection = null;
+	        
+	        try
+	        {
+	        	
+	          // create a database connection
+	          connection = DriverManager.getConnection
+	            ("jdbc:sqlite:src\\UD02_P02_ConectoresSQLite\\SQLite\\prueba.db");
+	          
+	          statement = connection.createStatement();
+	          statement.setQueryTimeout(30);  // set timeout to 30 sec
+	         
+	        }
+	        catch(SQLException e)
+	        {
+	          // if the error message is "out of memory",
+	          // it probably means no database file is found
+	          System.err.println(e.getMessage());
+	        }
+	 
+	      
+	  }
+	  
+	  
+	  /**
+	   * Metodo para crear tabla 
+	 * @throws SQLException 
+	   */
+	  public void crearTabla() throws SQLException
+	  {
+		  insertar("oscar", "tutor", "a@a.es", "898787676", "tudela");
           insertar("jorge", "jorgito", "a@a.es", "898787676", "tarazona");
           insertar("pepe", "pepito", "a@a.es", "898787676", "pepe");
           insertar("alex", "alejandro", "a@a.es", "898787676", "novallas");
-          
-          consultar();
-          
-          buscar(2);
-          
-          borrar(2);
-          
-          actualizar(1, "oksdjpasd");
-          
-          consultar();
-          
-         
-        }
-        catch(SQLException e)
-        {
-          // if the error message is "out of memory",
-          // it probably means no database file is found
-          System.err.println(e.getMessage());
-        }
-        finally
-        {
-          try
-          {
-            if(connection != null)
-              connection.close();
-          }
-          catch(SQLException e)
-          {
-            // connection close failed.
-            System.err.println(e.getMessage());
-          }
-        }
-      }
+	  }
 	  
 	  
 	  /**
@@ -79,7 +64,7 @@ public class ConectorSQLite {
 	   * @param localidad
 	   * @throws SQLException 
 	   */
-	  public static void insertar(String nombre, String apellido, String email, 
+	  public void insertar(String nombre, String apellido, String email, 
 		                   String telefono, String localidad) throws SQLException
 	  {
 		  int id = 1;
@@ -103,23 +88,27 @@ public class ConectorSQLite {
 	   * Metodo que saca por pantalla todos los registros de la base de datos
 	   * @throws SQLException Excepcion
 	   */
-	  public static void consultar() throws SQLException
+	  public void consultar() throws SQLException
 	  {
-		  //consulta a base de datos
-		  rs = statement.executeQuery("select * from persona");
-		  
-		  System.out.println("Registros de la base de datos: ");
-		  
-          while(rs.next())
-          {
-            // read the result set
-        	System.out.print("id = " + rs.getInt("id") + " | ");
-            System.out.print("nombre = " + rs.getString("nombre") + " | ");
-            System.out.print("apellido = " + rs.getString("apellido") + " | ");
-            System.out.print("email = " + rs.getString("email") + " | ");
-            System.out.print("telefono = " + rs.getString("telefono") + " | ");
-            System.out.println("localidad = " + rs.getString("localidad"));       
-          }
+       
+
+            //
+            //consulta a base de datos
+  		  rs = statement.executeQuery("select * from persona");
+  		  
+  		  System.out.println("Registros de la base de datos: ");
+  		  
+            while(rs.next())
+            {
+              // read the result set
+          	System.out.print("id = " + rs.getInt("id") + " | ");
+              System.out.print("nombre = " + rs.getString("nombre") + " | ");
+              System.out.print("apellido = " + rs.getString("apellido") + " | ");
+              System.out.print("email = " + rs.getString("email") + " | ");
+              System.out.print("telefono = " + rs.getString("telefono") + " | ");
+              System.out.println("localidad = " + rs.getString("localidad"));       
+            }
+             
 	  }
 
 	  
@@ -128,7 +117,7 @@ public class ConectorSQLite {
 	   * @param id Id para buscar un registro
 	   * @throws SQLException Excepcion
 	   */
-	  public static void buscar(int id) throws SQLException
+	  public void buscar(int id) throws SQLException
 	  {
 		  //consulta a base de datos
 		  rs = statement.executeQuery("select * from persona where id = '"+id+"'");
@@ -153,7 +142,7 @@ public class ConectorSQLite {
 	   * @param id
 	   * @throws SQLException Excepcion
 	   */
-	  public static void borrar(int id)
+	  public void borrar(int id)
 	  {
 		  try
 		  {
@@ -173,7 +162,7 @@ public class ConectorSQLite {
 	   * @param id 
 	   * @throws SQLException Excepcion
 	   */
-	  public static void actualizar(int id, String nombre) throws SQLException
+	  public void actualizar(int id, String nombre) throws SQLException
 	  {
 		  try
 		  {
