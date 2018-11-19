@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="D:/eclipse-workspace/AD_01_Ficheros/libs/jaxb/jaxb-jxc.jar"/>
 	<classpathentry kind="lib" path="D:/eclipse-workspace/AD_01_Ficheros/libs/jaxb/jaxb-xjc.jar"/>
 	<classpathentry kind="lib" path="D:/eclipse-workspace/AD_01_Ficheros/libs/jdbc/mysql-connector-java-8.0.13.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-workspace/AD_01_Ficheros/src/UD02_P02_ConectoresSQLite/libs/sqlite-jdbc-3.23.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
