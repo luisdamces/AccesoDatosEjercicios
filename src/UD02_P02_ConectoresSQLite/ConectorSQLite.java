@@ -32,8 +32,9 @@ public class ConectorSQLite {
           	 + "email string, telefono string, localidad string)");
           
           insertar("oscar", "tutor", "a@a.es", "898787676", "tudela");
-          insertar("oscars", "tutors", "a@a.es", "898787676", "tudelas");
+          insertar("jorge", "jorgito", "a@a.es", "898787676", "tarazona");
           insertar("pepe", "pepito", "a@a.es", "898787676", "pepe");
+          insertar("alex", "alejandro", "a@a.es", "898787676", "novallas");
           
           consultar();
           
