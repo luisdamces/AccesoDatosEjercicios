@@ -12,6 +12,10 @@ public class uso {
 		
 		conector.borrar(2);
 		conector.consultar();
+		
+		System.out.println("crear base de datos de nuevo");
+		conector.crearTabla();
+		conector.consultar();
 
 	}
 

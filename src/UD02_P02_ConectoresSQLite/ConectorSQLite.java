@@ -48,6 +48,12 @@ public class ConectorSQLite {
 	   */
 	  public void crearTabla() throws SQLException
 	  {
+		  //crear la tabla principal
+          statement.executeUpdate("drop table if exists persona");
+          statement.executeUpdate
+          	("create table persona (id integer, nombre string, apellido string,"
+          	 + "email string, telefono string, localidad string)");
+		  
 		  insertar("oscar", "tutor", "a@a.es", "898787676", "tudela");
           insertar("jorge", "jorgito", "a@a.es", "898787676", "tarazona");
           insertar("pepe", "pepito", "a@a.es", "898787676", "pepe");
