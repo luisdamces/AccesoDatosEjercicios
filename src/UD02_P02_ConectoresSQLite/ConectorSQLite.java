@@ -41,6 +41,8 @@ public class ConectorSQLite {
           
           borrar(2);
           
+          actualizar(1, "oksdjpasd");
+          
           consultar();
           
          
@@ -157,20 +159,33 @@ public class ConectorSQLite {
 			  //borrar un registro a partir del id
 			  rs = statement.executeQuery("delete from persona where id = '"+id+"'");
 			  
-			  rs = statement.executeQuery("select * from persona where id = '"+id+"'");
-			  
-			  if(rs.next())
-			  {
-				 
-			  }
-			  else
-			  {
-				  System.out.println("El registro se ha borrado"); 
-			  }
 		  }
 		  catch(SQLException e)
 		  {  
 		  }
+
+	  }
+	  
+	  
+	  /**
+	   * Metodo para cambiar el nombre a un registro a partir del id
+	   * @param id 
+	   * @throws SQLException Excepcion
+	   */
+	  public static void actualizar(int id, String nombre) throws SQLException
+	  {
+		  try
+		  {
+			  //borrar un registro a partir del id
+			  rs = statement.executeQuery("update persona set nombre = '"+nombre+
+					  						"'where id = '"+id+"'"); 
+		  }
+		  catch(Exception e)
+		  {
+			  
+		  }
+		   
+		
 
 	  }
 }
