@@ -44,7 +44,7 @@ public class ConectorSQLite {
 	  
 	  /**
 	   * Metodo para crear tabla 
-	 * @throws SQLException 
+	   * @throws SQLException 
 	   */
 	  public void crearTabla() throws SQLException
 	  {

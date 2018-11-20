@@ -16,6 +16,9 @@ public class uso {
 		System.out.println("crear base de datos de nuevo");
 		conector.crearTabla();
 		conector.consultar();
+		
+		conector.actualizar(2, "hasdfkljhadks");
+		conector.consultar();
 
 	}
 
