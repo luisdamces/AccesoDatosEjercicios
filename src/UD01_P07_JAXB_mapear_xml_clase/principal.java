@@ -214,6 +214,7 @@ public class principal {
 			} else
 
 				System.out.println("En número de venta no existe: " + numeventa);
+				return 
 
 		} catch (JAXBException je) {
 			System.out.println(je.getCause());
