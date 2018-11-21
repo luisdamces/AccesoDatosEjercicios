@@ -159,7 +159,7 @@ public class principal {
 	/////////////////////////////
 	
 	//ELIMINAR VENTA
-	private static boolean eliminarVenta(int numeventa, String nomcli, int uni, String fecha) {
+	private static boolean eliminarVenta(int numeventa) {
 
 		System.out.println("---------------------------- ");
 		System.out.println("------ELIMINAR VENTA-------- ");
@@ -181,17 +181,22 @@ public class principal {
 
 			// comprobar si existe el n�mero de venta, reccorriendo el arraylist
 			int existe = 0; // si no existe, 1 si existe
-			for (int i = 0; i < listaVentas.size(); i++) {
+			
+			for (int i = 0; i < listaVentas.size(); i++) 
+			{
 				Ventas.Venta ve = (Venta) listaVentas.get(i);
-				if (ve.getNumventa().intValue() == numeventa) {
-					existe = 1;
+				
+				if (ve.getNumventa().intValue() == numeventa) 
+				{
+					existe = 1; 
+					
 					break;
 				}
 			}
 
-			if (existe != 0) {
-				// Crear el objeto Ventas.Venta, y si no existe se añade a la
-				// lista
+			if (existe == 1) 
+			{
+				// borrar la venta
 
 				Ventas.Venta ve = new Ventas.Venta();
 				ve.setNombrecliente(nomcli);
@@ -209,18 +214,25 @@ public class principal {
 				m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 				m.marshal(jaxbElement, new FileOutputStream("src\\UD01_P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
 
-				System.out.println("Venta a�adida: " + numeventa);
-
-			} else
-
-				System.out.println("En número de venta no existe: " + numeventa);
-				return 
+				System.out.println("Venta eliminada " + numeventa);
+				
+				return true;
+			} 
+			else
+			{
+				System.out.println("En número de venta " + numeventa + " no existe"
+						+ " y no se puede borrar");
+				
+				return false;	
+			}	
 
 		} catch (JAXBException je) {
 			System.out.println(je.getCause());
 		} catch (IOException ioe) {
 			System.out.println(ioe.getMessage());
 		}
+		
+		return false;
 
 	}
 
