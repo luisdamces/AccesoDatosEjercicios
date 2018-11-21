@@ -22,7 +22,7 @@ Repositorio que contiene ejercicios de la asignatura Acceso a Datos del Ciclo D.
 
 [Proyecto 01 - Conectores MySQL](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD02_P01_Conectores_MySQL) - Uso de conectores para conectarse a Bases de Datos MySQL
 
-[Proyecto 02 - ConectoresSQLite](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD02_P01_Conectores_MySQL) - Uso de conectores para conectarse a Bases de Datos SQLite
+[Proyecto 02 - Conectores SQLite](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD02_P02_ConectoresSQLite) - Uso de conectores para conectarse a Bases de Datos SQLite
 
 ## Utilidades
 
