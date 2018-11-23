@@ -34,7 +34,7 @@ public class Procedimientos_funciones {
 			//
 			
 			//llamada a la funcion que devuelve nombre de departamento
-				dep = 7;
+				dep = 10;
 				sql = "{ ? = call nombre_dep_oscar (?) } ";
 				
 				//preparamos la llamada
@@ -57,7 +57,6 @@ public class Procedimientos_funciones {
 				
 			//
 				//llamada a la funcion que devuelve datos de departamento
-				dep = 7;
 				sql = "{ call datos_dep_oscar (?, ?, ?) } ";
 				
 				//preparamos la llamada

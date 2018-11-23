@@ -3,7 +3,7 @@
     <articulo>
         <codigo>ART-112</codigo>
         <denominacion>Pala Padel MiddleMoon</denominacion>
-        <stock>20</stock>
+        <stock>160</stock>
         <precio>70</precio>
     </articulo>
     <ventas>
@@ -27,15 +27,9 @@
         </venta>
         <venta>
             <numventa>30</numventa>
-            <unidades>10</unidades>
+            <unidades>20</unidades>
             <nombrecliente>Cliente 1</nombrecliente>
-            <fecha>16-12-2018</fecha>
-        </venta>
-        <venta>
-            <numventa>31</numventa>
-            <unidades>10</unidades>
-            <nombrecliente>Cliente 2</nombrecliente>
-            <fecha>16-10-2018</fecha>
+            <fecha>23/11/2018</fecha>
         </venta>
     </ventas>
 </ventasarticulos>
