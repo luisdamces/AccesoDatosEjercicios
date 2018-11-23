@@ -16,7 +16,9 @@ public class A01_Departamento
 	 */
 	public A01_Departamento(int n, String nombre, String localidad)
 	{
-		
+		idDepartamento = n;
+		nombreDepartamento = nombre;
+		this.localidad = localidad;
 	}
 	
 	//Getters y Setters
