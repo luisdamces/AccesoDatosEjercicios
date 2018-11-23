@@ -23,19 +23,11 @@ public class A01_ConexionBD {
 					"12345678");
 
 			// USO DE METODOS //
-
-			insertarDepartamento(100, "PruebaDep", "Madrid");
 			
-			ArrayList<A01_Departamento> departamentos = new ArrayList<A01_Departamento>();
-			departamentos = consultarDepartamentos();
-			Iterator<A01_Departamento> it = departamentos.iterator();
+			A01_Departamento dep = consultarDepartamento(20);
 			
-			while(it.hasNext()) {
-				A01_Departamento dep = it.next();
-				
-				System.out.println("DEPTNO: " + dep.getIdDepartamento() + " - DNAME: " + dep.getNombreDepartamento() + 
-						" - LOC: " + dep.getLocalidad());
-			}
+			System.out.println("DEPTNO: " + dep.getIdDepartamento() + " - DNAME: " + dep.getNombreDepartamento() + 
+					" - LOC: " + dep.getLocalidad());
 			
 			/////////////////////
 
@@ -50,12 +42,9 @@ public class A01_ConexionBD {
 	 * Metodo para insertar un nuevo departamento en la base de datos. Devuelve un
 	 * booleano para comprobar que se han insertado datos correctamente
 	 * 
-	 * @param numero
-	 *            ID del departamento
-	 * @param nombre
-	 *            Nombre del departamento
-	 * @param localidad
-	 *            Localidad del departamento
+	 * @param numero ID del departamento
+	 * @param nombre Nombre del departamento
+	 * @param localidad Localidad del departamento
 	 */
 	public static boolean insertarDepartamento(int numero, String nombre, String localidad) {
 		String query1 = "insert into DEPT (`DEPTNO`, `DNAME`, `LOC`) " + "values (" + numero + ", '" + nombre + "', '"
@@ -128,6 +117,7 @@ public class A01_ConexionBD {
 
 	/**
 	 * Método que devuelve un ArrayList con todos los departamentos de la base de datos
+	 * 
 	 * @return ArrayList de objetos Departamento
 	 */
 	public static ArrayList<A01_Departamento> consultarDepartamentos() {
@@ -154,5 +144,33 @@ public class A01_ConexionBD {
 
 		return lista;
 		
+	}
+
+	/**
+	 * Método devuelve un objeto Departamento a partir de un Id introducido por argumento
+	 * 
+	 * @return Devuelve un objeto Departamento
+	 */
+	public static A01_Departamento consultarDepartamento(int id) {
+		
+		A01_Departamento dep = null;
+		String query = "select * from DEPT where DEPTNO=" + id;
+
+		Statement stmt = null;
+
+		try {
+			// se crea la conexion
+			stmt = conexion.createStatement();
+			// se ejecuta el select
+			ResultSet rs = stmt.executeQuery(query);
+
+			while(rs.next()) {
+				dep = new A01_Departamento(rs.getInt("DEPTNO"), rs.getString("DNAME"),
+						rs.getString("LOC"));
+			}	
+		} catch (SQLException e) {
+		}
+
+		return dep;	
 	}
 }
