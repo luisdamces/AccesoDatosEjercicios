@@ -25,8 +25,12 @@ public class A01_ConexionBD
 		        				"12345678"); 
 		        
 		        //Uso de metodos/////////
-		     
-		        if(insertarDepartamento(3, "a", "d"))
+		        
+		        //Metodo para insertar departamento con clase Departamento
+		        A01_Departamento departamento = 
+		        		new A01_Departamento(100,"prueba", "madrid");
+		        
+		        if(insertarDepartamento(departamento))
 		        	System.out.println("Los datos se introducieron correctamente");
 		        else
 		        	System.out.println("Los datos no fueron introducidos");
@@ -55,6 +59,47 @@ public class A01_ConexionBD
 				     + "values ("+numero+", '"+nombre+"', '"+localidad+"');";
 		
 		String query2 = "select DEPTNO from DEPT where DEPTNO="+numero;
+        
+        Statement stmt = null;
+        
+        try 
+        {
+        	//se crea la conexion
+            stmt = conexion.createStatement();	
+            //se ejecuta el insert
+            stmt.execute(query1);
+            
+            //consultamos ls bd para ver si se ha introducido
+            ResultSet rs = stmt.executeQuery(query2);
+            
+            if(rs != null)
+            {
+                stmt.close();
+                return true;
+            }
+            else
+            {
+            	stmt.close();
+            	return false;
+            }
+            
+        }
+        catch (SQLException e)
+        {
+        }   
+        
+        return false;
+	}
+	
+	public static boolean insertarDepartamento(A01_Departamento dep)
+	{
+		String query1 = "insert into DEPT (`DEPTNO`, `DNAME`, `LOC`) "
+				     + "values ("+dep.getIdDepartamento()+", "
+				     + "'"+dep.getNombreDepartamento()+"',"
+				     + " '"+dep.getLocalidad()+"');";
+		
+		String query2 = "select DEPTNO from DEPT "
+					  + "where DEPTNO="+dep.getIdDepartamento();
         
         Statement stmt = null;
         
