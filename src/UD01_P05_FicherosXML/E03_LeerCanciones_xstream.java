@@ -23,7 +23,7 @@ public class E03_LeerCanciones_xstream {
 		
 		//leemos el fichero xml
 		ListaCanciones lista_canciones = (ListaCanciones) xstream.fromXML(
-		new FileInputStream("src\\P05_FicherosXML\\ficheros\\canciones_xs.xml"));
+		new FileInputStream("src\\UD01_P05_FicherosXML\\ficheros\\canciones_xs.xml"));
 		
 		//sacar por pantalla el n�mero de canciones que hay en el fichero xml
 		System.out.println(
