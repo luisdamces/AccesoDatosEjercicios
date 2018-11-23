@@ -25,16 +25,27 @@ public class principal {
 		// las unidades
 		// el nombre cliente, la fecha
 		// Comprobar que el nm�mero de venta no exista
+		
 		insertarVenta(31, "Cliente 2", 10, "16-10-2018");
-		// visualizarxml();
+		
+		visualizarxml();
+		
+		eliminarVenta(31);
+		
+		modificarStock(40);
+		
+		modificarVenta(30, 20, "23/11/2018");
+		
+		visualizarxml();
 	}
 
 	////////////////////////////////////////
 	public static void visualizarxml() {
 
-		System.out.println("------------------------------ ");
+		/*System.out.println("------------------------------ ");
 		System.out.println("-------VISUALIZAR XML--------- ");
-		System.out.println("------------------------------ ");
+		System.out.println("------------------------------ ");*/
+		
 		try {
 			// JAXBContext jaxbContext = JAXBContext.newInstance("datosclases");
 			JAXBContext jaxbContext = JAXBContext.newInstance(ObjectFactory.class);
@@ -51,7 +62,7 @@ public class principal {
 			Marshaller m = jaxbContext.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-			m.marshal(jaxbElement, System.out);
+			//m.marshal(jaxbElement, System.out);
 
 			// Si queremos operar con el documento obtenemos los
 			// objetos del jaxbElement
@@ -75,7 +86,7 @@ public class principal {
 
 			System.out.println("Nombre art: " + miartic.getDenominacion());
 			System.out.println("Codigo art: " + miartic.getCodigo());
-			System.out.println("Stock art: " + miartic.getCodigo());
+			System.out.println("Stock art: " + miartic.getStock());
 			System.out.println("Ventas  del art�culo , hay: " + listaVentas.size());
 
 			for (int i = 0; i < listaVentas.size(); i++) {
@@ -182,9 +193,11 @@ public class principal {
 			// comprobar si existe el n�mero de venta, reccorriendo el arraylist
 			int existe = 0; // si no existe, 1 si existe
 			
+			Ventas.Venta ve = new Ventas.Venta();
+			
 			for (int i = 0; i < listaVentas.size(); i++) 
 			{
-				Ventas.Venta ve = (Venta) listaVentas.get(i);
+				ve = (Venta) listaVentas.get(i);
 				
 				if (ve.getNumventa().intValue() == numeventa) 
 				{
@@ -198,16 +211,8 @@ public class principal {
 			{
 				// borrar la venta
 
-				Ventas.Venta ve = new Ventas.Venta();
-				ve.setNombrecliente(nomcli);
-				ve.setFecha(fecha);
-				ve.setUnidades(uni);
-				BigInteger nume = BigInteger.valueOf(numeventa);
-				ve.setNumventa(nume);
+				listaVentas.remove(ve);
 
-				// a�adimos la venta a la lista
-
-				listaVentas.add(ve);
 
 				// crear el Marshaller, volcar la lista al fichero XML
 				Marshaller m = jaxbContext.createMarshaller();
@@ -220,7 +225,7 @@ public class principal {
 			} 
 			else
 			{
-				System.out.println("En número de venta " + numeventa + " no existe"
+				System.out.println("El número de venta " + numeventa + " no existe"
 						+ " y no se puede borrar");
 				
 				return false;	
@@ -235,5 +240,137 @@ public class principal {
 		return false;
 
 	}
+	//////////////////
+	
+	//MODIFICAR STOCK
+		private static boolean modificarStock(int stock) {
+
+			System.out.println("---------------------------- ");
+			System.out.println("------MODIFICAR STOCK------- ");
+			System.out.println("---------------------------- ");
+			try {
+
+				JAXBContext jaxbContext = JAXBContext.newInstance(ObjectFactory.class);
+				Unmarshaller u = jaxbContext.createUnmarshaller();
+				JAXBElement jaxbElement = (JAXBElement) u.unmarshal(new FileInputStream("src\\UD01_P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
+
+				VentasType miventa = (VentasType) jaxbElement.getValue();
+					
+				//cargamos datos del articulo
+				DatosArtic datosArticulo = miventa.getArticulo();
+				
+				BigInteger stockActual = datosArticulo.getStock();
+				BigInteger stockAnadir = BigInteger.valueOf(stock);
+				int stockTotal;
+				
+				stockTotal = stockActual.intValue() + stockAnadir.intValue();
+				
+				datosArticulo.setStock(BigInteger.valueOf(stockTotal));
+
+				// crear el Marshaller, volcar la lista al fichero XML
+				Marshaller m = jaxbContext.createMarshaller();
+				m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+				m.marshal(jaxbElement, new FileOutputStream("src\\UD01_P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
+
+				System.out.println("Stock actualizado");
+				
+				return true;
+				
+
+			} 
+			catch (JAXBException je) 
+			{
+				System.out.println(je.getCause());
+				System.out.println("Stock no actualizado");
+				
+				return false;
+			} 
+			catch (IOException ioe) 
+			{
+				System.out.println(ioe.getMessage());
+				System.out.println("Stock no actualizado");
+				
+				return false;
+			}
+			
+			
+
+		}
+		//////////////
+		
+		
+		//MODIFICAR VENTA
+		private static boolean modificarVenta(int numeventa, int unidades, String fecha) {
+
+			System.out.println("---------------------------- ");
+			System.out.println("------MODIFICAR VENTA-------- ");
+			System.out.println("---------------------------- ");
+			try {
+
+				JAXBContext jaxbContext = JAXBContext.newInstance(ObjectFactory.class);
+				Unmarshaller u = jaxbContext.createUnmarshaller();
+				JAXBElement jaxbElement = (JAXBElement) u.unmarshal(new FileInputStream("src\\UD01_P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
+
+				VentasType miventa = (VentasType) jaxbElement.getValue();
+
+				// Obtenemos una instancia para obtener todas las ventas
+				Ventas vent = miventa.getVentas();
+
+				// Guardamos las ventas en la lista
+				List listaVentas = new ArrayList();
+				listaVentas = vent.getVenta();
+
+				// comprobar si existe el n�mero de venta, reccorriendo el arraylist
+				int existe = 0; // si no existe, 1 si existe
+				
+				Ventas.Venta ve = new Ventas.Venta();
+				
+				for (int i = 0; i < listaVentas.size(); i++) 
+				{
+					ve = (Venta) listaVentas.get(i);
+					
+					if (ve.getNumventa().intValue() == numeventa) 
+					{
+						existe = 1; 
+						
+						break;
+					}
+				}
+
+				if (existe == 1) 
+				{
+					// modificar la venta
+
+					ve.setUnidades(unidades);
+					ve.setFecha(fecha);
+
+					// crear el Marshaller, volcar la lista al fichero XML
+					Marshaller m = jaxbContext.createMarshaller();
+					m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+					m.marshal(jaxbElement, new FileOutputStream("src\\UD01_P07_JAXB_mapear_xml_clase\\ventasarticulos.xml"));
+
+					System.out.println("Venta modificada " + numeventa 
+							+ " - Unidades: " + unidades + "- Fecha: " + fecha);
+					
+					return true;
+				} 
+				else
+				{
+					System.out.println("El número de venta " + numeventa + " no existe"
+							+ " y no se puede modificar");
+					
+					return false;	
+				}	
+
+			} catch (JAXBException je) {
+				System.out.println(je.getCause());
+			} catch (IOException ioe) {
+				System.out.println(ioe.getMessage());
+			}
+			
+			return false;
+
+		}
+		//////////////////
 
 }
