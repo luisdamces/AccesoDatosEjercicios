@@ -1,5 +1,6 @@
 package UD02_P01_Conectores_MySQL;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,13 +25,12 @@ public class A01_ConexionBD {
 
 			// USO DE METODOS //
 			
-			insertarDepartamento(100, "Prueba", "Prueba");
+			insertarDepartamento(100, "Prueba", "Tarazona");
 			
-			if(eliminarDepartamento(100)==1)
-				System.out.println("Se ha eliminado correctamente");
+			if(modificarDepartamento(99, "Tudela"))
+				System.out.println("La localidad del departamento se ha modificado correctamente");
 			else
-				System.out.println("No se ha podido eliminar");
-			
+				System.out.println("La localidad del departamento no se ha podido modificar");
 			
 			/////////////////////
 
@@ -211,5 +211,42 @@ public class A01_ConexionBD {
 			 e.printStackTrace();
 		}
 		return 0;	
+	}
+
+	/**
+	 * Método que modifica la localidad de un departamento segun el id
+	 * @param id Id del departamento
+	 * @param localidad Nueva localidad
+	 * @return Devuelve un booleano indicando si el proceso se ha realizado correctamente
+	 */
+	public static boolean modificarDepartamento(int id, String localidad) {
+
+		Statement stmt = null;
+
+		try {
+			stmt = conexion.createStatement();
+			//comprobamos que el id introducido existe
+			A01_Departamento dep = consultarDepartamento(id);
+			
+			if(dep != null) {
+				// Preparamos la llamada
+				CallableStatement llamada = conexion.prepareCall("{ call actualizaDept (?, ?) }");
+				// Damos valor a los argumentos
+				llamada.setInt(1, id); // primer argumento - id
+				llamada.setString(2, localidad); // segundo arg - localidad
+				llamada.executeUpdate(); // ejecutar el procedimiento
+				
+				stmt.close();
+				llamada.close();
+				
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			 e.printStackTrace();
+		}	
+		return false;
 	}
 }
