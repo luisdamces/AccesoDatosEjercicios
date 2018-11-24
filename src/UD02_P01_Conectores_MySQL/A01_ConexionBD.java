@@ -24,10 +24,13 @@ public class A01_ConexionBD {
 
 			// USO DE METODOS //
 			
-			A01_Departamento dep = consultarDepartamento(20);
+			insertarDepartamento(100, "Prueba", "Prueba");
 			
-			System.out.println("DEPTNO: " + dep.getIdDepartamento() + " - DNAME: " + dep.getNombreDepartamento() + 
-					" - LOC: " + dep.getLocalidad());
+			if(eliminarDepartamento(100))
+				System.out.println("Se ha eliminado correctamente");
+			else
+				System.out.println("No se ha podido eliminar");
+			
 			
 			/////////////////////
 
@@ -172,5 +175,41 @@ public class A01_ConexionBD {
 		}
 
 		return dep;	
+	}
+
+	/**
+	 * Método que elimina un departamento de la base de datos según el id introducido
+	 * 
+	 * @param id Id del departamento a borrar
+	 * @return Devuelve un booleano indicando que el proceso se ha realizado correctamente o no 
+	 */
+	public static boolean eliminarDepartamento(int id) {
+		
+		String query1 = "delete from DEPT where DEPTNO=" + id;
+
+		Statement stmt = null;
+
+		try {
+			stmt = conexion.createStatement();
+			//comprobamos que el id introducido existe
+			A01_Departamento dep = consultarDepartamento(id);
+			
+			if(dep != null)
+				stmt.execute(query1);
+			else
+				return false;
+			
+			//comprobamos que el id introducido ya no existe
+			dep = consultarDepartamento(id);
+			
+			if(dep != null)
+				return false;
+			else
+				return true;
+
+		} catch (SQLException e) {
+			 e.printStackTrace();
+		}
+		return false;	
 	}
 }
