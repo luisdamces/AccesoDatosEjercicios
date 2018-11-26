@@ -25,12 +25,11 @@ public class A01_ConexionBD {
 
 			// USO DE METODOS //
 			
-			insertarDepartamento(100, "Prueba", "Tarazona");
-			
-			if(modificarDepartamento(99, "Tudela"))
-				System.out.println("La localidad del departamento se ha modificado correctamente");
+			if(modificarDepartamento(new A01_Departamento(99, "Prueba3", "Madrid"))) 
+				System.out.println("Se ha modificado correctamente");
 			else
-				System.out.println("La localidad del departamento no se ha podido modificar");
+				System.out.println("No se ha podido modificar");
+			
 			
 			/////////////////////
 
@@ -119,7 +118,7 @@ public class A01_ConexionBD {
 	}
 
 	/**
-	 * Método que devuelve un ArrayList con todos los departamentos de la base de datos
+	 * Mï¿½todo que devuelve un ArrayList con todos los departamentos de la base de datos
 	 * 
 	 * @return ArrayList de objetos Departamento
 	 */
@@ -150,7 +149,7 @@ public class A01_ConexionBD {
 	}
 
 	/**
-	 * Método devuelve un objeto Departamento a partir de un Id introducido por argumento
+	 * Mï¿½todo devuelve un objeto Departamento a partir de un Id introducido por argumento
 	 * 
 	 * @return Devuelve un objeto Departamento
 	 */
@@ -178,10 +177,10 @@ public class A01_ConexionBD {
 	}
 
 	/**
-	 * Método que elimina un departamento de la base de datos según el id introducido
+	 * Mï¿½todo que elimina un departamento de la base de datos segï¿½n el id introducido
 	 * 
 	 * @param id Id del departamento a borrar
-	 * @return Devuelve un numero indicando el número de filas afectadas
+	 * @return Devuelve un numero indicando el nï¿½mero de filas afectadas
 	 */
 	public static int eliminarDepartamento(int id) {
 		
@@ -214,7 +213,7 @@ public class A01_ConexionBD {
 	}
 
 	/**
-	 * Método que modifica la localidad de un departamento segun el id
+	 * Mï¿½todo que modifica la localidad de un departamento segun el id
 	 * @param id Id del departamento
 	 * @param localidad Nueva localidad
 	 * @return Devuelve un booleano indicando si el proceso se ha realizado correctamente
@@ -238,6 +237,39 @@ public class A01_ConexionBD {
 				
 				stmt.close();
 				llamada.close();
+				
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			 e.printStackTrace();
+		}	
+		return false;
+	}
+
+	/**
+	 * MÃ©todo al que le pasas un objeto departamento, y si un departamento con
+	 * ese ID existe en la base de datos, lo modifica
+	 * @param dep Objeto departamento
+	 * @return Devuelve un boolean indicando si el proceso se ha realizado
+	 * correctamente o no
+	 */
+	public static boolean modificarDepartamento(A01_Departamento dep) {
+		
+		String query = "UPDATE DEPT SET DNAME = '"+dep.getNombreDepartamento()+
+				"', LOC = '"+dep.getLocalidad()+"' where DEPTNO = " + dep.getIdDepartamento();
+		Statement stmt = null;
+
+		try {
+			stmt = conexion.createStatement();
+			//comprobamos que el id introducido existe
+			A01_Departamento existe = consultarDepartamento(dep.getIdDepartamento());
+			
+			if(existe != null) {
+				
+				stmt.execute(query);
 				
 				return true;
 			} else {
