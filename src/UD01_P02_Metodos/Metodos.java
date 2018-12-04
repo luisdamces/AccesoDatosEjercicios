@@ -8,7 +8,7 @@ public class Metodos {
 	
 	public static void main(String[] args){
 		
-	String ruta = "src\\P02_Metodos\\fichero_prueba.txt";
+	String ruta = "src\\UD01_P02_Metodos\\fichero_prueba.txt";
 	
 	File fichero = new File(ruta);	
 	
@@ -40,7 +40,7 @@ public class Metodos {
 		
 		
 		//-----mostrar nombre de los ficheros y directorios dentro de una carpeta-----
-		String dir = "src\\P02_Metodos";
+		String dir = "src\\UD01_P02_Metodos";
 		File f = new File(dir);
 		String[] listaNombres = f.list();
 		File[] listaFicheros = f.listFiles();
@@ -79,7 +79,7 @@ public class Metodos {
 		
 		//---crear directorio y a�adir dentro cuatro ficheros
 		
-		File directorio = new File("src\\P02_Metodos\\TBBT");
+		File directorio = new File("src\\UD01_P02_Metodos\\TBBT");
 		
 		if(directorio.mkdir())//si el directorio ya existe no crea otro carpeta ni la sobreescribe
 		{

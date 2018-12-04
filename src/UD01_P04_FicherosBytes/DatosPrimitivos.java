@@ -14,7 +14,7 @@ public class DatosPrimitivos {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 
-		File f2 = new File("src\\P04_FicherosBytes\\primitivos.dat");
+		File f2 = new File("src\\UD01_P04_FicherosBytes\\primitivos.dat");
 		f2.createNewFile();
 		
 		FileOutputStream fileout = new FileOutputStream(f2);
@@ -40,6 +40,8 @@ public class DatosPrimitivos {
 		FileInputStream filein = new FileInputStream(f2);
 		DataInputStream dataIS = new DataInputStream(filein);
 		
+		//para funcionar se tiene que leer en el mismo orden en 
+		//el que se escribieron los datos
 		try {
 			while(true) {
 				by=dataIS.readByte();

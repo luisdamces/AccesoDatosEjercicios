@@ -21,7 +21,7 @@ public class E02_Leer_XML_SAX
 	 
 	 procesadorXML.setContentHandler(gestor);
 	 
- 	 InputSource fileXML = new InputSource("src\\P05_FicherosXML\\ficheros\\canciones.xml");	
+ 	 InputSource fileXML = new InputSource("src\\UD01_P05_FicherosXML\\ficheros\\canciones.xml");	
  	 
      procesadorXML.parse(fileXML);        	      
 	}

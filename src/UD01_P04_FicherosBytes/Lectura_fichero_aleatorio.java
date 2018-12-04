@@ -16,7 +16,7 @@ public class Lectura_fichero_aleatorio {
 	public static void main(String[] args) throws IOException {
 
 
-		File f = new File("src\\P04_FicherosBytes\\ficheros\\escritura_fichero_aleatorio.dat");
+		File f = new File("src\\UD01_P04_FicherosBytes\\ficheros\\escritura_fichero_aleatorio.dat");
 		RandomAccessFile raf = new RandomAccessFile (f, "r");//r->Modo lectura	
 		
 		int posicion = 0;
@@ -35,7 +35,7 @@ public class Lectura_fichero_aleatorio {
 			
 			do {
 				
-				raf.seek(posicion);//Nos situamos en un lugar determinado del fichero para empezar a leer desde all�
+				//raf.seek(posicion);//Nos situamos en un lugar determinado del fichero para empezar a leer desde all�
 				id=raf.readInt();				
 				
 				for(int i = 0; i < apellidos.length; i++) {
@@ -52,7 +52,7 @@ public class Lectura_fichero_aleatorio {
 				
 				System.out.println("Id: "+id+" Apellidos: "+apellido+" Departamento: "+dpto+" Salario: "+salario);
 				
-				posicion += 36;
+				//posicion += 36;
 				/*36 porque ocupan todos los elementos 36B
 				2 int = 8B
 				1 Double = 8B

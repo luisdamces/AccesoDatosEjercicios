@@ -14,7 +14,7 @@ public class Ejercicios_Movimientos_Lectura {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-		File fichero = new File("src\\P04_FicherosBytes\\ficheros\\movimientos.dat");
+		File fichero = new File("src\\UD01_P04_FicherosBytes\\ficheros\\movimientos.dat");
 		
 		FileInputStream fileIn = new FileInputStream(fichero);
 		ObjectInputStream objectIn = new ObjectInputStream(fileIn);

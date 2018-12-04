@@ -11,7 +11,7 @@ public class LeerEscribirBytes {
 		// TODO Auto-generated method stub
 		//leer y escribir bytes
 		
-		File f1 = new File("src\\P04_FicherosBytes\\datos.dat");
+		File f1 = new File("src\\UD01_P04_FicherosBytes\\datos.dat");
 		f1.createNewFile();
 		
 		int i;

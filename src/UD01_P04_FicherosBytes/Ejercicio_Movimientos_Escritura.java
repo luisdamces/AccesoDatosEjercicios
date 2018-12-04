@@ -17,7 +17,7 @@ public class Ejercicio_Movimientos_Escritura {
 		
 		teclado = new Scanner(System.in);
 
-		File fichero = new File("src\\P04_FicherosBytes\\ficheros\\movimientos.dat");
+		File fichero = new File("src\\UD01_P04_FicherosBytes\\ficheros\\movimientos.dat");
 		fichero.createNewFile();
 		
 		FileOutputStream fileOut = new FileOutputStream(fichero);
