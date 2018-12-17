@@ -12,7 +12,8 @@
 	<classpathentry kind="lib" path="libs/xstream-1.4.11.1/lib/xstream/kxml2-min-2.3.0.jar"/>
 	<classpathentry kind="lib" path="libs/jdbc/mysql-connector-java-8.0.13.jar"/>
 	<classpathentry kind="lib" path="libs/jdbc/sqlite-jdbc-3.23.1.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/conectores"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.datatools.connectivity.jdt.DRIVERLIBRARY/MySQL JDBC Driver"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
