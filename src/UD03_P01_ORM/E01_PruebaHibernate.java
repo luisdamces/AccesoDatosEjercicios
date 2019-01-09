@@ -12,7 +12,7 @@ import modelo.HibernateUtils;
 public class E01_PruebaHibernate {
 	
 	public static void main (String[] args) {
-		//generamos el objeto SessionFactory a partir de la clase HibernateUtils
+		//generamos el objeto SessionFactory a partir de la clase HibernateUtilss
 		SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 		//abrimos la sesión
 		Session sesion = sessionFactory.openSession();
