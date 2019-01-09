@@ -1,10 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
+
     <session-factory>
-        <mapping resource="modelos/entidades/Equipos.hbm.xml"/>
-        <mapping resource="modelos/entidades/Estadisticas.hbm.xml"/>
-        <mapping resource="modelos/entidades/Partidos.hbm.xml"/>
-        <mapping resource="modelos/entidades/Jugadores.hbm.xml"/>
+
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3308/nba?serverTimezone=UTC</property>
+        <property name="connection.username">oscar</property>
+        <property name="connection.password">1234</property>
+
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+
+		<!-- Set the current session context -->
+		<property name="current_session_context_class">thread</property>
+
+	    <mapping class="modelos.entidades.Equipos"/>
+		<mapping class="modelos.entidades.Estadisticas"/>
+		<mapping class="modelos.entidades.Jugadores"/>
+		<mapping class="modelos.entidades.Partidos"/>
+ 
     </session-factory>
+
 </hibernate-configuration>
