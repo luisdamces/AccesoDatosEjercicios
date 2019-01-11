@@ -33,7 +33,8 @@ public class E03_Consulta_varias_tablas {
 		clave = teclado.nextLine();
 		
 		//obtener datos de un jugador
-		Query query1 = session.createQuery("FROM Jugadores where codigo = '" + clave + "'");
+		Query query1 = session.createQuery("SELECT Jugadores.nombre, Equipos.ciudad FROM Jugadores, Equipos "
+				+ "where Jugadores.nombre_equipo = Equipos.nombre and Jugadores.codigo = 1");
 		List<Jugadores> jugadores = query1.list();
 		
 		for (Jugadores jugador : jugadores) {	
