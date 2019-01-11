@@ -31,13 +31,15 @@ public class E03_Consulta_varias_tablas {
 		//pedir por teclado un nombre de equipo
 		System.out.println("Introduce el código de un jugador:");
 		clave = teclado.nextLine();
-		//obtener datos de un equipo con query
-		Query query = session.createQuery("FROM Equipos where nombre = '" + clave + "'");
-		List<Equipos> equipos = query.list();
 		
-		for (Equipos equipo : equipos) {
-		System.out.println("Nombre: " + equipo.getNombre() + " - Ciudad: " + equipo.getCiudad() + 
-				" - Conferencia: " + equipo.getConferencia() + " - Division: " + equipo.getDivision());
+		//obtener datos de un jugador
+		Query query1 = session.createQuery("FROM Jugadores where codigo = '" + clave + "'");
+		List<Jugadores> jugadores = query1.list();
+		
+		for (Jugadores jugador : jugadores) {	
+		System.out.println("Nombre: " + jugador.getNombre() + " - Altura: " + jugador.getAltura() + 
+				" - Posición: " + jugador.getPosicion() + " - Peso: " + jugador.getPeso() + 
+				" - Equipo: " + jugador.getEquipos() + " - Ciudad del equipo: " );
 		}
 		
 		sessionFactory.close();
