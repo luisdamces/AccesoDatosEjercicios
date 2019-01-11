@@ -8,15 +8,13 @@ import javax.persistence.*;
 @Table(name="jugadores")
 public class Jugadores implements java.io.Serializable{
 
-	
 	//ATRIBUTOS
-	
 	@Id
     @Column(name="codigo")
 	private int codigo;
 	
 	@Column(name="Nombre_equipo")
-	private Equipos equipos;
+	private String nombre_equipo;
 	
 	@Column(name="Nombre")
 	private String nombre;
@@ -43,9 +41,9 @@ public class Jugadores implements java.io.Serializable{
 		this.codigo = codigo;
 	}
 
-	public Jugadores(int codigo, Equipos equipos, String nombre, String procedencia, String altura, Integer peso, String posicion) {
+	public Jugadores(int codigo, String equipos, String nombre, String procedencia, String altura, Integer peso, String posicion) {
 		this.codigo = codigo;
-		this.equipos = equipos;
+		this.nombre_equipo = equipos;
 		this.nombre = nombre;
 		this.procedencia = procedencia;
 		this.altura = altura;
@@ -64,12 +62,12 @@ public class Jugadores implements java.io.Serializable{
 		this.codigo = codigo;
 	}
 
-	public Equipos getEquipos() {
-		return this.equipos;
+	public String getEquipos() {
+		return this.nombre_equipo;
 	}
 
-	public void setEquipos(Equipos equipos) {
-		this.equipos = equipos;
+	public void setEquipos(String equipos) {
+		this.nombre_equipo = equipos;
 	}
 
 	public String getNombre() {
