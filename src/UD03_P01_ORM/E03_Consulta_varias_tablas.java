@@ -37,14 +37,29 @@ public class E03_Consulta_varias_tablas {
 				+ "where Jugadores.nombre_equipo = Equipos.nombre and Jugadores.codigo = 1");*/
 		Query query1 = session.createQuery("FROM Jugadores where codigo = '"+ clave + "'");
 		List<Jugadores> jugadores = query1.list();
-		
-		System.out.println("---DATOS DEL JUGADOR---");
+		/////////
+		Jugadores jugadorDato = null;
+		Equipos equipoDato = null;
+		String equipo = "";
 		
 		for (Jugadores jugador : jugadores) {	
-		System.out.println("Nombre: " + jugador.getNombre() + " - Altura: " + jugador.getAltura() + 
-				" - Posición: " + jugador.getPosicion() + " - Peso: " + jugador.getPeso() + 
-				" - Equipo: " + jugador.getEquipos() + " - Ciudad del equipo: " );
+			jugadorDato = jugador;
+			equipo = jugador.getEquipos();
 		}
+		
+		//obtener ciudad del equipo
+		query1 = session.createQuery("FROM Equipos where nombre = '"+ equipo + "'");
+		List<Equipos> equipos = query1.list();
+		
+		for (Equipos datoequipo : equipos) {	
+			equipoDato = datoequipo;
+		}
+		
+		System.out.println("-------DATOS DEL JUGADOR-------");
+		System.out.println("Nombre: " + jugadorDato.getNombre() + " - Altura: " + jugadorDato.getAltura() + 
+				" - Posición: " + jugadorDato.getPosicion() + " - Peso: " + jugadorDato.getPeso() + 
+				" - Equipo: " + jugadorDato.getEquipos() + " - Ciudad del equipo: " + equipoDato.getCiudad());
+		System.out.println("-------------------------------");
 		
 		//obtener estadisticas del jugador
 		Query query2 = session.createQuery("FROM Estadisticas where jugador = '" + clave + "'");
