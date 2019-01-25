@@ -7,16 +7,18 @@ public class E01_Jugadores {
     private String deporte;
     private String ciudad;
     private int edad;
+    private E01_Paises pais;
    
     // Constructores
     public E01_Jugadores(){};
    
-    public E01_Jugadores(String nombre, String deporte, String ciudad, int edad) {
+    public E01_Jugadores(String nombre, String deporte, String ciudad, int edad, E01_Paises pais) {
           super();
           this.nombre = nombre;
           this.deporte = deporte;
           this.ciudad = ciudad;
           this.edad = edad;
+          this.pais = pais;
     }
    
     // Métodos
@@ -41,8 +43,14 @@ public class E01_Jugadores {
     public int getEdad() {
           return edad;
     }
-    public void setEdad(int edad) {
+    public void setEdad(int p) {
           this.edad = edad;
+    }
+    public E01_Paises getPais() {
+        return pais;
+    }
+    public void setPais(E01_Paises pais) {
+        this.pais = pais;
     }
 } // Fin clase Jugadores
 
