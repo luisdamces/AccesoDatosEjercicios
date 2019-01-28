@@ -26,12 +26,12 @@ public class E01_Main {
 		E01_Jugadores j4= new E01_Jugadores ("Alicia", "tenis", "Madrid", 14, pais1);
 		
 		// Inserto los objetos
-		odb.store(j1);
+		/*odb.store(j1);
 		odb.store(j2);
 		odb.store(j3);
 		odb.store(j4);
 		odb.store(pais1);
-		odb.store(pais2);
+		odb.store(pais2);*/
 		
 		// sacar los datos de todos los jugadores
 		Objects<E01_Jugadores> objects = odb.getObjects(E01_Jugadores.class);
@@ -74,14 +74,27 @@ public class E01_Main {
 		
 		Objects<E01_Jugadores> objects2 = odb.getObjects(query);
 		
-		mostrarDatos(objects2, "Jugadores que son de Madrid y tienen 5 años");
+		mostrarDatos(objects2, "Jugadores que son de Madrid y tienen 15 años");
 		
-		//////CONSULTA 3 CON jugadores y paises///////
+		//////CONSULTA 3 CON jugadores que hay en un pais///////
+		
+		String pais = "Mexico";
+		
+		ICriterion criterio3 = new And().add(Where.equal("pais.nombrePais", pais));
+		query = new CriteriaQuery(E01_Jugadores.class, criterio3);
+		Objects<E01_Jugadores> jugadores = odb.getObjects(query);
+		
+		mostrarDatos(jugadores, "Jugadores que son de " + pais);
+		
+		///////BORRAR UN PAIS///////
+		
+		/*query = new CriteriaQuery(E01_Paises.class, Where.equal("nombrePais", "Espana"));
+		E01_Paises paisborrar = (E01_Paises) odb.getObjects(query).getFirst();
+
+		odb.delete(paisborrar);*/
+		
 		
 		odb.close();
-		//borrar el fichero al final para que no se acumulen datos
-		File f = new File("src\\UD04_P01_BDOO\\data\\neodatis.test");
-		f.delete();
 	}
 	
 	public static void mostrarDatos(Objects<E01_Jugadores> objects, String mensaje) {
@@ -91,7 +104,8 @@ public class E01_Main {
 			E01_Jugadores jug = objects.next();
 		     
 		    System.out.println((i++) + "\t: " + jug.getNombre() + "*" + 
-		    jug.getDeporte() + "*" + jug.getCiudad() + "*" + jug.getEdad());
+		    jug.getDeporte() + "*" + jug.getCiudad() + "*" + jug.getEdad() 
+		    + "*" + jug.getPais().getNombrePais());
 		}
 		System.out.println("------------");
 	}
