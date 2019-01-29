@@ -28,6 +28,10 @@ Repositorio que contiene ejercicios de la asignatura Acceso a Datos del Ciclo D.
 
 [Proyecto 01 - ORM](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD03_P01_ORM) - Uso de herramientas ORM
 
+## Unidad 04 - Bases de datos orientadas a objetos
+
+[Proyecto 01 - ORM](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD04_P01_BDOO) - Ejemplos de base de datos orientada a objetos con Neodatis
+
 ## Utilidades
 
 [Proyecto Utilidades](https://github.com/oscarcillo/AccesoDatos/tree/master/src/Utilidades) - Utilidades.
