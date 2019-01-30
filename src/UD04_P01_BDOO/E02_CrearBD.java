@@ -9,11 +9,11 @@ public class E02_CrearBD {
 
 	public static void main(String[] args) {
 
-		File fichero = new File("src\\UD04_P02_BDOO_MySQL_a_Neodatis\\ficheros\\ARTICULOS.DAT");
+		File fichero = new File("src\\UD04_P01_BDOO\\ficheros\\ARTICULOS.DAT");
 		if (fichero.delete())
 			   System.out.println("BD Borrada");
 		// creación de registros en la BD
-		  ODB odb = ODBFactory.open("ARTICULOS.DAT"); 
+		  ODB odb = ODBFactory.open("src\\UD04_P01_BDOO\\ficheros\\ARTICULOS.DAT"); 
 		  
 		// creo los artículos
 		  E02_Articulos ar1 = new E02_Articulos(1,"Mesas", 30, (float)100.5);

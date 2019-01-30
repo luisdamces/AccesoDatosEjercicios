@@ -14,7 +14,7 @@ public class E01_Main {
 
 	public static void main(String[] args) {
 		//creo la conexion
-		ODB odb = ODBFactory.open("src\\UD04_P01_BDOO\\data\\Equipos.db");
+		ODB odb = ODBFactory.open("src\\UD04_P01_BDOO\\ficheros\\Equipos.db");
 		
 		// Creo los paises
 		E01_Paises pais1 = new E01_Paises(1, "Espana");
