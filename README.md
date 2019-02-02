@@ -30,8 +30,9 @@ Repositorio que contiene ejercicios de la asignatura Acceso a Datos del Ciclo D.
 
 ## Unidad 04 - Bases de datos orientadas a objetos
 
-[Proyecto 01 - ORM](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD04_P01_BDOO) - Ejemplos de base de datos orientada a objetos con Neodatis
+[Proyecto 01 - BDOO](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD04_P01_BDOO) - Ejemplos de base de datos orientada a objetos con Neodatis
 
+[Proyecto 02 - BDOO, Paso de MySQL a Neodatis](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD04_P02_BDOO_MySQL_a_Neodatis) - Ejemplos de paso de datos entre MySQL y Neodatis
 ## Utilidades
 
 [Proyecto Utilidades](https://github.com/oscarcillo/AccesoDatos/tree/master/src/Utilidades) - Utilidades.
