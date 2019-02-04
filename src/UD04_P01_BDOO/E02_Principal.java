@@ -34,8 +34,8 @@ public class E02_Principal {
 			E02_Ventas venta = ventas.next();
 		     
 		    System.out.println((i++) + " | Cod. venta: " + venta.getCodventa() + 
-		    		" | Cod. art�culo: " + venta.getCodarti().getCodarti() + 
-		    		" | Denominaci�n: " + venta.getCodarti().getDenom() + 
+		    		" | Cod. articulo: " + venta.getCodarti().getCodarti() + 
+		    		" | Denominacion: " + venta.getCodarti().getDenom() + 
 		    		" | Num. cliente: " + venta.getNumcli().getNumcli() +
 		    		" | Nombre Cliente: " + venta.getNumcli().getNombre()+
 		    		" | Fecha: " + venta.getFecha() + " | Unidades: " + venta.getUniven()+ 
@@ -46,7 +46,7 @@ public class E02_Principal {
 	
 	public static void mostrarDatosPorArticulo() {
 		
-		System.out.println("Datos de Ventas agrupados por artículo");
+		System.out.println("Datos de Ventas agrupados por ariculo");
 		
 		Values valorUnidades = odb.getValues(new ValuesCriteriaQuery(E02_Ventas.class).
 				sum("univen").groupBy("codarti"));
@@ -58,8 +58,8 @@ public class E02_Principal {
 			ObjectValues ov = valorUnidades.nextValues();
 			ObjectValues ov2 = valorImporte.nextValues();
 			
-			System.out.println("Nº de uds. vendidas: " + ov.getByIndex(0) + 
-					" | Nº de ventas: " + ov2.getByIndex(0));
+			System.out.println("N. de uds. vendidas: " + ov.getByIndex(0) + 
+					" | N.de ventas: " + ov2.getByIndex(0));
 			
 		}
 		System.out.println("--------------");
@@ -74,9 +74,9 @@ public class E02_Principal {
 		while(clientes.hasNext()) {
 			E02_Clientes cliente = clientes.next();
 			
-			System.out.println("Nº cliente: " + cliente.getNumcli() + 
+			System.out.println("N. cliente: " + cliente.getNumcli() + 
 					" | Nombre: " + cliente.getNombre() + 
-					" | Población: " + cliente.getPobla());
+					" | Poblacion: " + cliente.getPobla());
 			
 			i++;
 		}
