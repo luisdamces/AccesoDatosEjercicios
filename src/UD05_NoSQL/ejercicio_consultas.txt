@@ -37,3 +37,6 @@
 
 	db.jugadores.find({"draft.pickNum":{$eq:"1"}}).pretty()
 	
+-Jugadores de los Lakers con sus nombres en mayúsculas
+
+	db.jugadores.aggregate([{"$project":{"firstName" : 1, "lastName":{"$toUpper":"$lastName"}, "teamId" : 1}}, {"$match" : {"teamId" : "1610612747"}}]).pretty()
