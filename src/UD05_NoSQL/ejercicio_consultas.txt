@@ -53,7 +53,7 @@
 
 -Nombre del jugador que más años lleva en la NBA.
 
-	db.jugadores.aggregate([{$match: {"nbaDebutYear": {$ne: ""}}}, {$project: {"nbaDebutYear": {$toInt: "$nbaDebutYear"}, "firstName": "$firstName"}}, {$group: {_id: null,"nbaDebutYear": {$min: "$nbaDebutYear"},"firstName": {$first: "$firstName"}}}])
+	db.jugadores.aggregate([{$match: {"nbaDebutYear": {$ne: ""}}}, {$project: {"nbaDebutYear": {$toInt: "$nbaDebutYear"}, "firstName": "$firstName"}}, {$group: {_id: null,"nbaDebutYear": {$min: "$nbaDebutYear"}}}])
 
 -Partidos en los que el equipo visitante ha metido más de 100 puntos y no ha ganado.
 
