@@ -26,7 +26,7 @@ Repositorio que contiene ejercicios de la asignatura Acceso a Datos del Ciclo D.
 
 ## Unidad 03 - Herramientas de Mapeo objeto-relacional
 
-[Proyecto 01 - ORM](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD03_P01_ORM) - Uso de herramientas ORM
+[Proyecto 01 - ORM](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD03_P01_ORM) - Uso de herramientas ORM con Hibernate
 
 ## Unidad 04 - Bases de datos orientadas a objetos
 
