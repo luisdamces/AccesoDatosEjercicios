@@ -1,0 +1,3 @@
+Comando para importar una colección (Ejecutar desde cmd en la carpeta donde se encuentran los ejecutables de MongoDB):
+
+	mongoimport --host localhost --port 27017 --db nba --collection jugadores --file "C:\Users\oscar\git\AccesoDatos\src\UD05_NoSQL\json mongodb\jugadores.json"
