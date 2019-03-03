@@ -1,7 +1,3 @@
-# Links con documentación para la instalación de Hibernate en Eclipse
-
-[Documentación para la instalación de Hibernate](https://examples.javacodegeeks.com/enterprise-java/hibernate/hibernate-maven-example/)
-
 # Hibernate ORM
 
 ## Contexto
@@ -10,7 +6,7 @@ El mapeo objeto-relacional consiste en la conversión de tipos utilizando un len
 En el lenguaje que nos ocupa, Java, se desarrolló un sistema de persistencia denominado JPA (API de persistencia Java), una de cuyas implementaciones, de software libre, es Hibernate.
 
 
-## Preparación del entorno
+## Preparación del entorno. [Guía](http://www.programandoapasitos.com/2016/01/instalacion-y-configuracion-de.html)
 1. Descarga de [Hibernate](http://hibernate.org/orm/) 
 2. Descarga de [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
 3. Instalación del plugin de Jboss Tools (solo Hibernate) a través de eclipse Marketplace.
