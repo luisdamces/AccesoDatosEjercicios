@@ -1,3 +1,11 @@
 Comando para importar una colección (Ejecutar desde cmd en la carpeta donde se encuentran los ejecutables de MongoDB):
 
 	mongoimport --host localhost --port 27017 --db nba --collection jugadores --file "C:\Users\oscar\git\AccesoDatos\src\UD05_NoSQL\json mongodb\jugadores.json"
+	(Usar --jsonArray si el archivo json es un array de datos)
+
+Para hacer consultas sobre varios registros de una coleccion
+
+	db.jugadores.find({"country" : "Spain", "pos" : "g"}).pretty()
+	(Se pueden incluir varias claves para hacer la busqueda dentro del primer grupo de llaves, en el segundo grupo de llaves se ajusta la visibilidad de los datos a mostrar)
+
+
