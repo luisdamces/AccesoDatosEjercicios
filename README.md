@@ -42,7 +42,7 @@ Repositorio que contiene ejercicios de la asignatura Acceso a Datos del Ciclo D.
 
 ## Unidad 06 - Componentes
 
-[Proyecto 06 - Componentes](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD05_NoSQL) - Ejemplos de uso de componentes
+[Proyecto 06 - Componentes](https://github.com/oscarcillo/AccesoDatos/tree/master/src/UD06_Componentes) - Ejemplos de uso de componentes
 
 
 ## Utilidades
