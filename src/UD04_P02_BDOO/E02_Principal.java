@@ -18,6 +18,7 @@ public class E02_Principal {
 			mostrarDatosVentas();
 			mostrarDatosPorArticulo();
 			mostrarDatosClientes();
+			estadisticas();
 			//
 			odb.close();
 	}
@@ -69,18 +70,45 @@ public class E02_Principal {
 		System.out.println("Datos de Clientes");
 	
 		Objects<E02_Clientes> clientes = odb.getObjects(E02_Clientes.class);
-		
-		int i = 0;
+	
 		while(clientes.hasNext()) {
 			E02_Clientes cliente = clientes.next();
 			
-			System.out.println("N. cliente: " + cliente.getNumcli() + 
-					" | Nombre: " + cliente.getNombre() + 
-					" | Poblacion: " + cliente.getPobla());
+			//comprobar cuantas ventas tiene el cliente
+			Objects<E02_Ventas> ventas = odb.getObjects(E02_Ventas.class);
 			
-			i++;
+			int numeroCompras = 0;
+			float importeTotal = 0;
+			
+			while(ventas.hasNext()) {
+				E02_Ventas venta = ventas.next();
+				if(venta.getNumcli().getNumcli()==cliente.getNumcli()) {
+					numeroCompras++;
+					importeTotal += venta.getUniven() * venta.getCodarti().getPvp();
+				}
+			}
+			/////////////
+			
+			System.out.println("Nº: " + cliente.getNumcli() + 
+					" | Nombre: " + cliente.getNombre() + 
+					" | Poblacion: " + cliente.getPobla() +
+					" | Importe: " + importeTotal +
+					" | Nº Compras: " + numeroCompras);
 		}
 		System.out.println("--------------");
 	}
 
+	public static void estadisticas() {
+		System.out.println("Estadisticas");
+		
+		Values mediaImporte = odb.getValues(new ValuesCriteriaQuery(E02_Ventas.class)
+				.avg("codarti.pvp", "media")
+				.groupBy("codarti"));
+		
+		while(mediaImporte.hasNext()) {
+			ObjectValues oValues = mediaImporte.nextValues();
+			System.out.println(oValues.getByAlias("media"));
+		}
+	}
+	
 } // fin clase
