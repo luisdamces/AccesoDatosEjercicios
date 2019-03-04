@@ -1,4 +1,4 @@
-package UD04_P01_BDOO;
+package UD04_P02_BDOO;
 
 import java.io.File;
 import org.neodatis.odb.ODB;
@@ -20,7 +20,7 @@ public class E01_Main {
 		E01_Paises pais1 = new E01_Paises(1, "Espana");
 		E01_Paises pais2 = new E01_Paises(2, "Mexico");
 		// Creo los equipos
-		E01_Jugadores j1= new E01_Jugadores ("María", "voleibol", "Madrid", 14, pais1);
+		E01_Jugadores j1= new E01_Jugadores ("Marï¿½a", "voleibol", "Madrid", 14, pais1);
 		E01_Jugadores j2= new E01_Jugadores ("Miguel", "tenis", "Madrid", 15, pais1);
 		E01_Jugadores j3= new E01_Jugadores ("Mario", "baloncesto", "Guadalajara", 15, pais2);
 		E01_Jugadores j4= new E01_Jugadores ("Alicia", "tenis", "Madrid", 14, pais1);
@@ -74,7 +74,7 @@ public class E01_Main {
 		
 		Objects<E01_Jugadores> objects2 = odb.getObjects(query);
 		
-		mostrarDatos(objects2, "Jugadores que son de Madrid y tienen 15 años");
+		mostrarDatos(objects2, "Jugadores que son de Madrid y tienen 15 aï¿½os");
 		
 		//////CONSULTA 3 CON jugadores que hay en un pais///////
 		

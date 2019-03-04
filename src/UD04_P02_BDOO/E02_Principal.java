@@ -1,4 +1,4 @@
-package UD04_P01_BDOO;
+package UD04_P02_BDOO;
 
 import org.neodatis.odb.ODB;
 

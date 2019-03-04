@@ -1,4 +1,4 @@
-package UD04_P01_BDOO;
+package UD04_P02_BDOO;
 
 public class E01_Jugadores {
     
@@ -21,7 +21,7 @@ public class E01_Jugadores {
           this.pais = pais;
     }
    
-    // Métodos
+    // Mï¿½todos
     public String getNombre() {
           return nombre;
     }

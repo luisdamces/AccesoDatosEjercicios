@@ -1,4 +1,4 @@
-package UD04_P01_BDOO;
+package UD04_P02_BDOO;
 
 import java.io.File;
 
@@ -12,20 +12,20 @@ public class E02_CrearBD {
 		File fichero = new File("src\\UD04_P01_BDOO\\ficheros\\ARTICULOS.DAT");
 		if (fichero.delete())
 			   System.out.println("BD Borrada");
-		// creación de registros en la BD
+		// creaciï¿½n de registros en la BD
 		  ODB odb = ODBFactory.open("src\\UD04_P01_BDOO\\ficheros\\ARTICULOS.DAT"); 
 		  
-		// creo los artículos
+		// creo los artï¿½culos
 		  E02_Articulos ar1 = new E02_Articulos(1,"Mesas", 30, (float)100.5);
 		  E02_Articulos ar2 = new E02_Articulos(2,"Pupitres", 10, (float)150.7);
 		  E02_Articulos ar3 = new E02_Articulos(6,"Cuadernos", 100, (float)4.5);
 		  E02_Articulos ar4 = new E02_Articulos(8,"Tabletas", 10, (float)175.4);
-		  E02_Articulos ar5 = new E02_Articulos(9,"Bolígrafos", 100, (float)3.5);
+		  E02_Articulos ar5 = new E02_Articulos(9,"Bolï¿½grafos", 100, (float)3.5);
 		  E02_Articulos ar6 = new E02_Articulos(10,"Lapiceros", 300, (float)2.5);
 		  E02_Articulos ar7 = new E02_Articulos(14,"Sillas", 30, (float)120.5);
-		  E02_Articulos ar8 = new E02_Articulos(16,"Portátil", 25, (float)400.5);
+		  E02_Articulos ar8 = new E02_Articulos(16,"Portï¿½til", 25, (float)400.5);
 		
-		  E02_Articulos ar11 = new E02_Articulos(17,"Espejo baño", 20, (float)100.5);
+		  E02_Articulos ar11 = new E02_Articulos(17,"Espejo baï¿½o", 20, (float)100.5);
 		  E02_Articulos ar21 = new E02_Articulos(18,"Reloj cocina", 10, (float)20.7);
 		  E02_Articulos ar31 = new E02_Articulos(20,"Tarjetero", 50, (float)14.5);
 		  E02_Articulos ar41 = new E02_Articulos(22,"Estuches", 110, (float)20.4);
@@ -35,7 +35,7 @@ public class E02_CrearBD {
 		  E02_Articulos ar81 = new E02_Articulos(26,"Teclado", 25, (float)40.5);
 				
 		 
-		  // Almacenamos artículos 16 artículos
+		  // Almacenamos artï¿½culos 16 artï¿½culos
 		  odb.store(ar1); 
 		  odb.store(ar2);
 		  odb.store(ar3);
@@ -58,11 +58,11 @@ public class E02_CrearBD {
 		  E02_Clientes cli1 = new E02_Clientes(1,"Antonio Ruiz","Talavera");
 		  E02_Clientes cli2 = new E02_Clientes(2,"La Alameda S.L.","Talavera");
 		  E02_Clientes cli3 = new E02_Clientes(7,"Los molinos CB","Madrid");
-		  E02_Clientes cli4 = new E02_Clientes(8,"Pedro Morán S.L.","Talavera");
-		  E02_Clientes cli5 = new E02_Clientes(12,"Azulejos Martín S.L.","Talavera");
+		  E02_Clientes cli4 = new E02_Clientes(8,"Pedro Morï¿½n S.L.","Talavera");
+		  E02_Clientes cli5 = new E02_Clientes(12,"Azulejos Martï¿½n S.L.","Talavera");
 		  E02_Clientes cli6 = new E02_Clientes(15,"Bar Girasol","Oropesa");
 		  E02_Clientes cli7 = new E02_Clientes(9,"Escuela Mayores","Talavera");
-		  E02_Clientes cli8 = new E02_Clientes(17,"Galería Madrid S.L.","Madrid");
+		  E02_Clientes cli8 = new E02_Clientes(17,"Galerï¿½a Madrid S.L.","Madrid");
 		  E02_Clientes cli9 = new E02_Clientes(19,"El corte Chino","Talavera");
 		  E02_Clientes cli10 = new E02_Clientes(20,"UNICAS S.A.","Oropesa");
 		  E02_Clientes cli11 = new E02_Clientes(21,"Deportivo SAS","Talavera");
