@@ -23,12 +23,12 @@
 -Consultar los equipos que son franquicias NBA.
 
 	db.equipos.find({"isNBAFranchise" : true}).pretty()
-	---------------------------------------------------
-	db.equipos.find({$or : [{"confName" : "West"}, {"confName" : "East"}]}).pretty()
 
 -Consultar los equipos de la conferencia Oeste.
 
 	db.equipos.find({"confName" : "West"}).pretty()
+	---------------------------------------------------
+	db.equipos.find({$or : [{"confName" : "West"}, {"confName" : "East"}]}).pretty()
 
 -Consultar los entrenadores principales, isAssistant: false
 
