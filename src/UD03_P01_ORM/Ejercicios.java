@@ -25,7 +25,7 @@ public class Ejercicios {
 		
 		datosJugador(1);
 		jugadoresEquipo("Clippers");
-		estadisticasJugador(2);
+		estadisticasJugador(3);
 
 	}
 
@@ -60,30 +60,31 @@ public class Ejercicios {
 	}
 	
 	public static void estadisticasJugador(int codigo) {
-		//consulta a jugadores
-		Query query = session.createQuery("FROM Jugadores where codigo = '" + codigo + "'");
-		List<Jugadores> jugadores = query.list();
-		//consulta a estadisticas
-		query = session.createQuery("FROM Estadisticas where jugador = '" + codigo + "'");
-		List<Estadisticas> estadisticas = query.list();
+		Query query = session.createQuery("FROM Jugadores jug INNER JOIN Estadisticas est ON jug.codigo = est.jugador"
+				+ " WHERE jug.codigo = '" + codigo +"'");
+		List<Object[]> objetos = query.list();
 		
-		if(jugadores.isEmpty() || estadisticas.isEmpty()) {
-			System.out.println("El jugador con ese código no existe o no tiene estadisticas");
-			return;
+		boolean seguir = true;
+		
+		for (Object[] row: objetos) {
+			//crear objetos jugador y estadisiticas a partir de la consulta de varias clases
+			Jugadores jug = (Jugadores)row[0];
+			Estadisticas est = (Estadisticas) row[1];
+			
+			//escribir solo una vez los datos del jugador
+			if(seguir)
+				System.out.println("---DATOS DEL JUGADOR---\n" 
+				+ "Nombre: " + jug.getNombre() + " | Procedencia: " + jug.getProcedencia()
+				+ " | Altura: " + jug.getAltura() + " | Peso: " + jug.getPeso()
+				+ " | Posición: " + jug.getPosicion() + " | Nombre Equipo: " + jug.getEquipos()
+				+ "\n---ESTADISTICAS---");
+			
+			//escribir todas las estadisticas del jugador
+		    System.out.println("Temporada: " + est.getTemporada() + " | Puntos partido: " + est.getPuntos_por_partido()
+		    +" | Asistencias partido: " + est.getAsistencias_por_partido() 
+		    +" | Tapones partido: " + est.getTapones_por_partido()
+		    +" | Rebotes partido: " + est.getRebotes_por_partido());
+		    seguir = false;
 		}
-		
-		System.out.println("------------------------------------------------------");
-		for (Jugadores jugador : jugadores) 
-			System.out.println("Nombre: " + jugador.getNombre() + " | Procedencia: " + jugador.getProcedencia()
-			+ " | Altura: " + jugador.getAltura() + " | Peso: " + jugador.getPeso() 
-			+ " | Posición: " + jugador.getPosicion() + " | Nombre equipo: " + jugador.getEquipos());
-
-		System.out.println("ESTADISTICAS:");
-		for (Estadisticas estadistica : estadisticas) 
-			System.out.println("Temporada: " + estadistica.getTemporada() 
-			+ " | Puntos partido: " + estadistica.getPuntos_por_partido()
-			+ " | Asistencias partido: " + estadistica.getAsistencias_por_partido() 
-			+ " | Tapones partido: " + estadistica.getTapones_por_partido()
-			+ " | Rebotes partido: " + estadistica.getRebotes_por_partido());
 	}
 }
