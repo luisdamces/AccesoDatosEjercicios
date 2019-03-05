@@ -22,14 +22,23 @@ public class E01_PruebaHibernate {
 		//genera conexion entre aplicacion y base de datos
 		Transaction tr = session.beginTransaction();
 		
+		Jugadores jugador = new Jugadores(616, null, "Alex", "Novallas", "7-2", 300, "C");
+		
 		//insertar jugador
-		//Jugadores jugador = new Jugadores(616, null, "Alex", "Novallas", "7-2", 300, "C");
 		//session.save(jugador);
+		
+		//borrar jugador
+		//session.delete(jugador);
+		
+		//actualizar jugador
+		//jugador.setPeso(250);
+		//session.update(jugador);
+		
 		tr.commit();
 		
 		//obtener datos de un jugador
 		Jugadores jugador2 = (Jugadores) session.get(Jugadores.class, 614);
-		System.out.println("Código: " + jugador2.getCodigo() + " - Nombre: " + jugador2.getNombre());
+		System.out.println("Cï¿½digo: " + jugador2.getCodigo() + " - Nombre: " + jugador2.getNombre());
 		
 		sessionFactory.close();
 	}
