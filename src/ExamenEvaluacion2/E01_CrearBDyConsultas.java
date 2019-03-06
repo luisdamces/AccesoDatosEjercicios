@@ -71,7 +71,7 @@ public class E01_CrearBDyConsultas {
 		while(objects.hasNext()){
 			E01_Equipo equipo = objects.next();
 		    
-			System.out.println("Equipo mas antiguo que ha ganado alguna liga:");
+			System.out.println("Equipo que menos temporadas ha jugado en primera:");
 		    System.out.println("Nombre equipo: "+equipo.getNombre()
 		    	+ " | Ligas: " + equipo.getLigas() + " | Copas: " + equipo.getCopas()
 		    	+ " | Fundacion: " + equipo.getFundacion() 
