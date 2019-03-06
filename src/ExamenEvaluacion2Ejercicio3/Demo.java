@@ -20,6 +20,14 @@ public class Demo {
 		
 		controllerEquipos.remove(new Equipos("prueba", "", "", ""));
 		controllerEquipos.viewEquipos();*/
+		
+		controllerEquipos.viewEquipos();
+		
+		controllerEquipos.create(new Equipo(26, "Real Zaragoza", 0, 6, 1932, 59));
+		
+		controllerEquipos.update(new Equipo(3, "Barcelona", 24, 26, 1907, 83));
+		
+		controllerEquipos.remove(new Equipo(17, "Mérida", 0, 0, 0, 0));
 	}
 
 }

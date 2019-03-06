@@ -20,8 +20,8 @@ public class EquipoDaoMySQLImp implements EquipoDao {
 		Connection con=null;
 		
 		String sql="INSERT INTO equipos values ("+equipo.getCodigo()+",'"+equipo.getNombre()
-			+"','"+equipo.getFundacion()+"','"+equipo.getEnPrimera()+"','"
-			+equipo.getLigas()+"','"+equipo.getCopas()+"'";
+			+"',"+equipo.getFundacion()+","+equipo.getEnPrimera()+","
+			+equipo.getLigas()+","+equipo.getCopas();
 		
 		try {			
 			con=MySQLConnection.conectar();
@@ -81,13 +81,11 @@ public class EquipoDaoMySQLImp implements EquipoDao {
 		
 		boolean updated=false;
 		
-		/*String sql="UPDATE equipos SET nombre='"+equipo.getNombre()+"', procedencia='"
-		+equipo.getProcedencia()+"', altura='"+equipo.getAltura()+"', peso=" 
-				+ jugador.getPeso()+", posicion='" 
-				+ jugador.getPosicion()+"', nombre_equipo='"
-				+jugador.getNombre_equipo() +"' WHERE codigo="
-				+jugador.getCodigo();*/
-		String sql="";
+		String sql="UPDATE equipos SET nombre='"+equipo.getNombre()+"', fundacion='"
+		+equipo.getFundacion()+"', temp_primera='"+equipo.getEnPrimera()
+		+"', ligas=" + equipo.getLigas()+", copas='" 
+				+ equipo.getCopas()+"' WHERE codigo="
+				+equipo.getCodigo();
 		
 		try {
 			connect=MySQLConnection.conectar();
@@ -107,7 +105,7 @@ public class EquipoDaoMySQLImp implements EquipoDao {
 		Statement stm = null;
 		
 		boolean removed = false;
-		String sql = "DELETE FROM equipo WHERE codigo = "+Equipo.getCodigo();
+		String sql = "DELETE FROM equipos WHERE codigo = "+Equipo.getCodigo();
 		
 		try {
 			con = MySQLConnection.conectar();
