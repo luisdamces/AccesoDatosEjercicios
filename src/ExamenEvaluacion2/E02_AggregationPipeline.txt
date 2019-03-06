@@ -1,19 +1,16 @@
-Nombre completo (firstName y lastName) de los jugadores en un solo campo.
+Nombre completo (firstName y lastName) de los jugadores en un solo campo y Edad actual en años de cada jugador.
 
 db.jugadores.aggregate([{
     $project: {
         "nombreCompleto": {
             $concat: ["$firstName", " ", "$lastName"]
-        }
+        },
+        "dateOfBirthUTC": 1
+
     }
-}])
-
-Edad actual en años de cada jugador.
-
-db.jugadores.aggregate([{
+}, {
     $project: {
-        "firstName": 1,
-        "lastName": 1,
+        "nombreCompleto": 1,
         "age": {
             $subtract: [2019, {
                 $year: {
@@ -21,12 +18,29 @@ db.jugadores.aggregate([{
                 }
             }]
         }
+
     }
 }])
 
+
 Insertar el resultado en una nueva colección llamada, jugadores_edades.
 
+db.jugadores.aggregate([{$project: {
+   "nombreCompleto": 
+   {$concat: ["$firstName", " ", "$lastName"]},
+   "dateOfBirthUTC" : 1
 
+        }}, {$project: {
+        "nombreCompleto" : 1,
+        "age": {
+            $subtract: [2019, {
+                $year: {
+                    $toDate: "$dateOfBirthUTC"
+                }
+            }]
+        }
+
+    }}, {$out: "jugadores_edades"}])
 
 Exportar el contenido de la colección nueva a un fichero JSON.
 
