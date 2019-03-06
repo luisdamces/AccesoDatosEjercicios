@@ -1,11 +1,14 @@
 package UD04_P02_BDOO;
 
+import java.math.BigInteger;
+
 import org.neodatis.odb.ODB;
 
 import org.neodatis.odb.ODBFactory;
 import org.neodatis.odb.ObjectValues;
 import org.neodatis.odb.Objects;
 import org.neodatis.odb.Values;
+import org.neodatis.odb.core.query.IValuesQuery;
 import org.neodatis.odb.impl.core.query.values.ValuesCriteriaQuery;
 
 public class E02_Principal {
@@ -99,16 +102,69 @@ public class E02_Principal {
 	}
 
 	public static void estadisticas() {
-		System.out.println("Estadisticas");
+		System.out.println("Estadísticas:");
+
+		//Artículo con mayor número de ventas
+		Objects<E02_Ventas> ventas = odb.getObjects(E02_Ventas.class);
 		
-		Values mediaImporte = odb.getValues(new ValuesCriteriaQuery(E02_Ventas.class)
-				.avg("codarti.pvp", "media")
-				.groupBy("codarti"));
+		Values nVentas = odb.getValues((IValuesQuery) new ValuesCriteriaQuery(E02_Ventas.class).
+				count("codventas").groupBy("codarti"));
 		
-		while(mediaImporte.hasNext()) {
-			ObjectValues oValues = mediaImporte.nextValues();
-			System.out.println(oValues.getByAlias("media"));
+		E02_Ventas venta;
+		int codartiAnterior = 0;
+		int codigoArticuloMasVendido = 0;
+		
+		while(ventas.hasNext()) {
+			
+			venta = ventas.next();
+			
+			if (venta.getCodarti().getCodarti() != codartiAnterior) {				
+				ObjectValues ov = nVentas.nextValues();
+				BigInteger valor = (BigInteger)ov.getByIndex(0);
+				if (valor.intValue() > codigoArticuloMasVendido) {
+					codigoArticuloMasVendido = codartiAnterior;
+				}				
+			}			
+			codartiAnterior = venta.getCodarti().getCodarti();			
 		}
+		
+		//Cliente con mayor importe gastado y mayor número de compras
+		Objects<E02_Clientes> clientes = odb.getObjects(E02_Clientes.class);
+		
+		int numClienteMayorImporteGastado = 0;
+		int numClienteMasCompras = 0;
+		
+		while(clientes.hasNext()) {
+			E02_Clientes cliente = clientes.next();
+			
+			ventas = odb.getObjects(E02_Clientes.class);
+			
+			int numeroCompras = 0;
+			float importeTotal = 0;
+			
+			while(ventas.hasNext()) {
+				venta = ventas.next();
+				if(venta.getNumcli().getNumcli() == cliente.getNumcli()) {
+					numeroCompras++;
+					importeTotal += venta.getUniven() * venta.getCodarti().getPvp();
+				}
+			}
+			
+			if (importeTotal > numClienteMayorImporteGastado) {
+				numClienteMayorImporteGastado = cliente.getNumcli();
+			}
+			
+			if (numeroCompras > numClienteMasCompras) {
+				numClienteMasCompras = cliente.getNumcli();
+			}			
+		}
+		
+		System.out.println("Código del artículo más vendido: " + codigoArticuloMasVendido);
+		System.out.println("Número del cliente con mayor importe gastado: " + numClienteMayorImporteGastado);
+		System.out.println("Número del cliente con más compras realizadas: " + numClienteMasCompras);
+		
+		System.out.println("\n---------------------------------------------------------------------------------------\n");
+
 	}
 	
 } // fin clase
