@@ -44,4 +44,8 @@ public class ControllerEquipos {
 	public void viewEquipos(Equipo equipo) {
 		vista.viewEquipo(equipo);
 	}
+	
+	public static void actualizarEquipo(Equipo equipo) {
+		
+	}
 }

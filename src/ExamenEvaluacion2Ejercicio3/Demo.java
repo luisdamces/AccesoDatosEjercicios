@@ -3,6 +3,8 @@ package ExamenEvaluacion2Ejercicio3;
 import ExamenEvaluacion2Ejercicio3.ControllerEquipos;
 
 public class Demo {
+	
+	static ControllerEquipos controllerEquipos;
 
 	public static void main(String[] args) {
 		
@@ -25,9 +27,9 @@ public class Demo {
 		
 		controllerEquipos.create(new Equipo(26, "Real Zaragoza", 0, 6, 1932, 59));
 		
-		controllerEquipos.update(new Equipo(3, "Barcelona", 24, 26, 1907, 83));
+		controllerEquipos.update(new Equipo(3, "Barcelona", 0, 0, 0, 0));
 		
 		controllerEquipos.remove(new Equipo(17, "Mérida", 0, 0, 0, 0));
 	}
-
+	
 }
